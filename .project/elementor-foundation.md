@@ -17,6 +17,7 @@ Do not mark the full Atomic Foundation approved until every layer has been revie
 - Never place custom CSS inside Elementor elements/widgets/pages or Elementor Custom CSS fields.
 - If Elementor genuinely cannot express a justified requirement, centralized CSS belongs in the active Hello Elementor child theme.
 - Fix foundation-level problems at the foundation owner. Do not repair them page by page.
+- UNA-Elementor provides controlled creative range; it must not force every client into the same conservative or compact visual rhythm.
 
 ---
 
@@ -220,7 +221,7 @@ The number in a Fixed variable is the exact spacing value. The number in a Fluid
 - Space 24 Fixed
 - Space 32 Fixed
 
-These primarily serve small/internal relationships such as icon gaps, control spacing, form relationships, component gaps, and compact padding.
+These primarily serve small/internal relationships such as icon gaps, control spacing, form relationships, component gaps, and small-scale padding.
 
 #### Layout / Section Spacing — Fixed + Fluid
 - Space 40 Fixed / Space 40 Fluid
@@ -246,7 +247,24 @@ After 120px, use 20px increments through 300px:
 - Space 280 Fixed / Space 280 Fluid
 - Space 300 Fixed / Space 300 Fluid
 
-These are exceptional composition values for deliberate large-scale whitespace, hero/editorial composition, offsets, or other proven layout needs. Their availability is not permission to routinely apply 140–300px section padding.
+These values exist to support expressive composition: large heroes, editorial whitespace, asymmetric layouts, intentional offsets, premium/luxury treatment sections, and other art-directed structures when the project calls for them.
+
+### No Density-Preset Rule
+UNA-Elementor does **not** define `Compact / Default / Spacious` as the canonical section-spacing system.
+
+Do not ship opinionated section-density presets that cause every dental/medical site to inherit the same rhythm or composition.
+
+The numeric Fixed/Fluid spacing range is the foundation. A project's approved global classes and compositions decide how those variables are used.
+
+The same foundation must be capable of supporting, for example:
+- a tightly composed informational/insurance section;
+- a large cinematic hero;
+- an asymmetric treatment story;
+- a high-whitespace cosmetic/luxury section;
+- a dense utility/form area;
+- a conventional service section when that is the right design decision.
+
+**The system controls values and reuse; it does not standardize creativity out of the design.**
 
 ### Fluid Threshold Rule
 
@@ -268,20 +286,24 @@ Exact clamp formulas/mobile floors are implementation values to be calibrated an
 ### Usage Responsibility
 
 - **4–32:** component/internal spacing by default.
-- **40–120:** normal layout/section spacing.
-- **140–300:** large/exceptional composition spacing.
+- **40–120:** common layout/section spacing range.
+- **140–300:** large/art-directed composition range.
 
-Responsibility outranks the number. A 48px internal relationship may legitimately be Fixed; a 48px section relationship may legitimately use Fluid. Do not choose Fluid solely because a value is available.
+These are usage tendencies, not visual-style presets. Responsibility and the approved project design outrank the number.
+
+A 48px internal relationship may legitimately be Fixed; a 48px section relationship may legitimately use Fluid. A 200px Fluid value may be correct for a deliberately art-directed composition. Do not choose or reject a value merely because it looks unusually large or small in isolation.
 
 ### Class-First Application
-Variables provide approved values; global classes own repeatable application.
+Variables provide the approved creative range; global classes encode repeatable decisions for the specific project.
 
-A builder should prefer an approved section/layout class that already consumes the appropriate spacing variables instead of manually selecting padding values on every section.
+A builder should prefer an approved section/layout class that already consumes the appropriate spacing variables instead of manually selecting padding values on every repeated section.
+
+This does **not** mean UNA-Elementor should pre-create generic section classes that force all projects into the same spacing recipe. Classes should reflect reusable composition in the actual design system.
 
 Local spacing controls remain the final exception for genuinely unique composition—not a substitute for missing global classes.
 
 ### Spacing Approval Rule
-**Use Fixed when the relationship must remain constant. Use Fluid for larger spatial relationships that should respond to viewport size. Preserve intentional mobile-safe spacing.**
+**Be visually expressive within the approved spacing system. Do not achieve originality through arbitrary values or repeated local overrides. Use Fixed when the relationship must remain constant; use Fluid when a larger spatial relationship should respond to viewport size; always preserve intentional mobile-safe spacing.**
 
 ---
 
