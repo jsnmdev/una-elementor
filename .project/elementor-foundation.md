@@ -107,7 +107,6 @@ Typography values are **font-aware**. Two fonts at the same CSS size/weight can 
 These are starting ranges for dental/medical work, not immutable values independent of the selected typeface.
 
 ### Fluid Mobile-First Rule
-
 Typography begins at the mobile minimum and scales toward an intentional desktop maximum.
 
 Preferred behavior:
@@ -118,7 +117,6 @@ Display roles and H1–H4 normally benefit from fluid scaling. Body text should 
 
 ### Role Ownership
 Each typography role owns, as applicable:
-
 - Font family
 - Mobile/minimum size
 - Desktop/maximum size
@@ -129,7 +127,6 @@ Each typography role owns, as applicable:
 
 ### Font-Family Rule
 Default maximum for normal dental/medical projects:
-
 - one Heading/Display family;
 - one Body/UI family.
 
@@ -139,7 +136,6 @@ A third accent/display typeface requires a real brand/design reason. UI, forms, 
 Actual project fonts must be loaded before typography is considered approved for that project.
 
 Calibration must inspect:
-
 - x-height;
 - cap height;
 - character width;
@@ -153,7 +149,6 @@ Calibration must inspect:
 - mobile/tablet/desktop behavior.
 
 Representative calibration content should include:
-
 - `Aa / ABC / abc / 123`
 - a short heading;
 - a long treatment/medical heading;
@@ -179,7 +174,6 @@ Page/container width and reading width are different responsibilities.
 For sustained dental/medical reading, target approximately **60–75 characters per line** where practical. Wide page compositions should still constrain long treatment explanations, patient instructions, articles, and similar reading content appropriately.
 
 ### Accessibility / Readability Baseline
-
 - Body: **16px minimum baseline**; may scale toward ~18px on larger screens.
 - Small: ~14px minimum role for genuinely secondary content.
 - Caption/Overline: ~12–14px only for truly secondary/supporting information.
@@ -188,17 +182,111 @@ For sustained dental/medical reading, target approximately **60–75 characters 
 - Typography must survive zoom/reflow and responsive testing.
 
 ### Typography Approval Flow
-
 `Load Actual Fonts → Calibration Page → Adjust Foundation Roles → Responsive Test → Accessibility/Readability Check → APPROVE`
 
 ### Governing Typography Rule
-
 **Typography values are calibrated to the actual typeface at the foundation level. Never repair font-specific spacing or sizing problems page by page.**
+
+---
+
+## 1C. Spacing Variables — STRUCTURE APPROVED
+
+### Purpose
+Spacing variables are exposed directly in Elementor V4 and must be understandable to the person building the page without requiring knowledge of CSS token syntax.
+
+The variable name communicates both the intended maximum/exact pixel scale and whether the value is fixed or fluid.
+
+### Naming Contract
+
+**Fixed:** `Space {px} Fixed`
+
+**Fluid:** `Space {px} Fluid`
+
+Examples:
+- `Space 24 Fixed`
+- `Space 48 Fixed`
+- `Space 48 Fluid`
+- `Space 120 Fluid`
+
+The number in a Fixed variable is the exact spacing value. The number in a Fluid variable represents its intended desktop/maximum spacing value; the value scales down through a clamp toward an approved mobile-safe minimum.
+
+### Approved Spacing Scale
+
+#### Core / Internal Spacing — Fixed Only
+- Space 4 Fixed
+- Space 8 Fixed
+- Space 12 Fixed
+- Space 16 Fixed
+- Space 24 Fixed
+- Space 32 Fixed
+
+These primarily serve small/internal relationships such as icon gaps, control spacing, form relationships, component gaps, and compact padding.
+
+#### Layout / Section Spacing — Fixed + Fluid
+- Space 40 Fixed / Space 40 Fluid
+- Space 48 Fixed / Space 48 Fluid
+- Space 56 Fixed / Space 56 Fluid
+- Space 64 Fixed / Space 64 Fluid
+- Space 80 Fixed / Space 80 Fluid
+- Space 96 Fixed / Space 96 Fluid
+- Space 120 Fixed / Space 120 Fluid
+
+These serve normal layout and section relationships. Choose Fixed when the spatial relationship should remain constant; choose Fluid when it should scale responsively.
+
+#### Large Composition Spacing — Fixed + Fluid
+After 120px, use 20px increments through 300px:
+
+- Space 140 Fixed / Space 140 Fluid
+- Space 160 Fixed / Space 160 Fluid
+- Space 180 Fixed / Space 180 Fluid
+- Space 200 Fixed / Space 200 Fluid
+- Space 220 Fixed / Space 220 Fluid
+- Space 240 Fixed / Space 240 Fluid
+- Space 260 Fixed / Space 260 Fluid
+- Space 280 Fixed / Space 280 Fluid
+- Space 300 Fixed / Space 300 Fluid
+
+These are exceptional composition values for deliberate large-scale whitespace, hero/editorial composition, offsets, or other proven layout needs. Their availability is not permission to routinely apply 140–300px section padding.
+
+### Fluid Threshold Rule
+
+**32px and below → Fixed only.**
+
+**40px and above → Fixed and Fluid variants available.**
+
+Do not create clamp/fluid variants for 4–32px values unless real implementation evidence later proves a need.
+
+### Fluid Behavior
+A Fluid spacing variable follows:
+
+`Approved Mobile-Safe Minimum → Fluid Clamp Growth → Named Desktop/Maximum Value`
+
+The mobile floor is intentional. A clamp must never collapse important section/layout spacing below the project's approved safe mobile spacing merely because a mathematical formula allows it.
+
+Exact clamp formulas/mobile floors are implementation values to be calibrated and tested before they are promoted as canonical generator logic.
+
+### Usage Responsibility
+
+- **4–32:** component/internal spacing by default.
+- **40–120:** normal layout/section spacing.
+- **140–300:** large/exceptional composition spacing.
+
+Responsibility outranks the number. A 48px internal relationship may legitimately be Fixed; a 48px section relationship may legitimately use Fluid. Do not choose Fluid solely because a value is available.
+
+### Class-First Application
+Variables provide approved values; global classes own repeatable application.
+
+A builder should prefer an approved section/layout class that already consumes the appropriate spacing variables instead of manually selecting padding values on every section.
+
+Local spacing controls remain the final exception for genuinely unique composition—not a substitute for missing global classes.
+
+### Spacing Approval Rule
+**Use Fixed when the relationship must remain constant. Use Fluid for larger spatial relationships that should respond to viewport size. Preserve intentional mobile-safe spacing.**
 
 ---
 
 # Next Foundation Review
 
-Color structure and the dental/medical typography baseline are documented. Continue the Variables review before moving to Base.
+Color, typography, and spacing variable structures are documented. Continue the Variables review before moving to Base.
 
-Next variable family to review: **Spacing**.
+Next variable family to review: **Sizing / Layout**.
