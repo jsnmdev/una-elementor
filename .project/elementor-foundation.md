@@ -403,8 +403,52 @@ Minimum interactive target behavior remains an accessibility requirement downstr
 
 ---
 
+## 1E. Radius Variables — STRUCTURE APPROVED
+
+### Purpose
+Radius variables provide a controlled fixed range for corners while preserving enough visual range for clinical, modern, editorial, and premium dental/medical compositions.
+
+### Approved Radius Scale
+- **Radius 0** — `0px`
+- **Radius 4** — `4px`
+- **Radius 8** — `8px`
+- **Radius 12** — `12px`
+- **Radius 16** — `16px`
+- **Radius 24** — `24px`
+- **Radius 32** — `32px`
+- **Radius Full** — fully rounded / pill / circle behavior where appropriate
+
+### Usage Guidance
+The scale provides options, not mandatory component styling.
+
+Common tendencies:
+- 0–8px: controls, inputs, small UI, sharper/clinical treatments;
+- 12–16px: common cards, content blocks, forms;
+- 24–32px: larger editorial cards, media panels, premium/luxury compositions;
+- Full: pills, chips, circular controls, and intentionally fully rounded elements.
+
+These are usage tendencies only. The approved project design determines which radii are actually assigned to classes/components.
+
+### Fixed-Only Rule
+Radii are fixed values. UNA-Elementor does not create fluid/clamp radius variables by default.
+
+### Nested Radius Rule
+Nested surfaces should be visually coordinated. When a rounded child sits inside a rounded parent, the inner radius should normally step down or otherwise account for the surrounding inset so the corners do not visually fight.
+
+Do not blindly apply the same large radius to every nested layer.
+
+### Class-First Rule
+Repeated corner treatment belongs to the owning global class/component. Do not manually choose a different local radius for each repeated card or control.
+
+If a genuinely new radius is repeatedly required and none of the approved variables supports the design, review the Foundation intentionally before expanding the scale.
+
+### Creative Range Rule
+**Radii are project-expression tools, not style presets. UNA-Elementor controls the available values and reuse; it does not force every card, input, or section into the same corner treatment.**
+
+---
+
 # Next Foundation Review
 
-Color, typography, spacing, and sizing/layout variable structures are documented. Continue the Variables review before moving to Base.
+Color, typography, spacing, sizing/layout, and radius variable structures are documented and approved at the Foundation-contract level.
 
-Next variable family to review: **Radius**.
+Next variable family to review: **Borders**.
