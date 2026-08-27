@@ -307,8 +307,104 @@ Local spacing controls remain the final exception for genuinely unique compositi
 
 ---
 
+## 1D. Sizing / Layout Variables — STRUCTURE APPROVED
+
+### Purpose
+Sizing/Layout defines the master page geometry that all later Elementor classes, patterns, and components inherit. The goal is to preserve the team's proven 1200px design canvas while allowing deliberate full-bleed and art-directed compositions.
+
+### Core Layout Variables
+
+- **Width Content** — `1200px`
+- **Gutter Content** — `20px`
+
+These are the primary shared layout values for the baseline build.
+
+The 20px gutter is intentionally familiar to the team and remains a stable safe side inset rather than becoming a complex fluid rule by default.
+
+### Master Composition Rule
+
+The canonical desktop structure is:
+
+`Full-Width Section → 1200px Content Container + 20px Side Padding → Real Content / Grid Composition`
+
+The section owns the viewport-width surface/background. The inner content container owns the master alignment and safe side padding. Actual content is composed inside that system.
+
+Do not constrain every section itself to 1200px. The section remains free to support background color, media, decoration, and bleed behavior across the viewport.
+
+### 12-Column Grid Relationship
+The team's 12-column composition remains anchored inside the 1200px master content system.
+
+Do not introduce a competing wide-container system merely to create visual variety. Expressive layouts should come from composition, grid usage, spacing, and intentional bleed—not from casually changing the master content width per section.
+
+### Half-Content Geometry
+For split compositions, derive the half from the master content width:
+
+`1200px master content → 600px left half + 600px right half`
+
+The half relationship is derived from the 1200px master. It is **not** defined as `50vw`.
+
+A separate `Width Content Half` variable is not required at this stage; the half should be derived structurally by the approved layout class/pattern so responsive behavior and gutters remain coherent.
+
+### Structural Bleed Contract
+Bleed is a first-class layout capability and must be structural rather than simulated with arbitrary widget offsets.
+
+Canonical concept:
+
+`1200px-derived half → anchored to master grid → selected media/surface extends outward from that half to the viewport edge`
+
+Supported directions:
+- Bleed Left
+- Bleed Right
+
+The same concept may later support image, video, surface, or decorative-media bleed when the project design requires it.
+
+### DOM Ownership Rule
+Split/bleed composition must be represented intentionally in the DOM/container hierarchy.
+
+Conceptual structure:
+
+```html
+<section>
+  <div class="layout-split-bleed">
+    <div class="layout-split-bleed__media">
+      <!-- media -->
+    </div>
+    <div class="layout-split-bleed__content">
+      <!-- content -->
+    </div>
+  </div>
+</section>
+```
+
+This is a conceptual contract, not permission to hardcode these exact class names before the Layout Classes layer is reviewed.
+
+Mirror left/right behavior through an approved modifier/state rather than duplicating separate markup for each direction.
+
+### No Fake-Bleed Rule
+Do not create the primary bleed geometry by applying arbitrary negative margins, transforms, or page-specific offsets to individual Elementor widgets.
+
+If a project requires a reusable split/bleed composition, the container/DOM structure and owning global layout class must express that relationship.
+
+### Responsive Behavior
+The 600px half is a desktop/master-grid relationship, not a fixed mobile width.
+
+At smaller breakpoints, the same semantic DOM should reflow or stack according to the approved composition while preserving logical reading order and content accessibility. Avoid separate duplicate mobile markup solely to reproduce the layout.
+
+### Fixed Heights
+Do not establish global fixed-height variables for sections/heroes by default.
+
+Content should normally determine block height. Use intentional `min-height` or viewport-relative behavior only at the later component/pattern level when the actual design requires it and it has been tested for content growth, mobile browser behavior, zoom/reflow, and accessibility.
+
+### Interaction Sizing
+Minimum interactive target behavior remains an accessibility requirement downstream. Do not turn button/control heights into rigid visual sizing variables before Buttons/Forms are reviewed.
+
+### Layout Approval Rule
+**Design inside the 1200px master content system, preserve the team's 20px safe gutter, derive split halves from the 1200px content width, and use structural bleed to escape intentionally toward the viewport. Do not create variety by abandoning the master grid or by faking bleed with local offsets.**
+
+---
+
 # Next Foundation Review
 
-Color, typography, and spacing variable structures are documented. Continue the Variables review before moving to Base.
+Color, typography, spacing, and sizing/layout variable structures are documented. Continue the Variables review before moving to Base.
 
-Next variable family to review: **Sizing / Layout**.
+Next variable family to review: **Radius**.
