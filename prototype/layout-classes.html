@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Layout Classes — UNA-Elementor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout-classes.css">
+</head>
+<body class="layout-lab">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main" class="layout-lab-shell">
+    <header class="layout-lab-header">
+      <a href="sitemap.html">← Foundation QA</a>
+      <p class="layout-note">UNA-Elementor Foundation / Layout Classes</p>
+      <h1>Reusable structure before components.</h1>
+      <p>This page validates only the reusable layout vocabulary. The production target is Elementor Global Classes built with Elementor layout settings, UNA Variables, and Elementor responsive controls.</p>
+    </header>
+
+    <section class="layout-lab-section">
+      <h2>Containers</h2>
+      <p><code class="layout-code">container-full</code> is the 1200px master content canvas with 20px safe side gutters. It stacks by default. <code class="layout-code">container-read</code> constrains sustained reading content.</p>
+      <div class="layout-demo">
+        <div class="container-full">
+          <div class="layout-box">container-full — 1200px + 20px safe sides</div>
+        </div>
+      </div>
+      <div class="layout-demo" style="margin-top:var(--una-space-24-fixed)">
+        <div class="container-read">
+          <div class="layout-box alt">container-read — reading width</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout-lab-section">
+      <h2>Flow</h2>
+      <p><code class="layout-code">stack</code> handles repeated vertical flow. <code class="layout-code">cluster</code> handles horizontal groups that may wrap.</p>
+      <div class="grid-2">
+        <div class="layout-demo stack layout-stack-demo">
+          <div class="layout-box">Stack 1</div>
+          <div class="layout-box">Stack 2</div>
+          <div class="layout-box">Stack 3</div>
+        </div>
+        <div class="layout-demo cluster layout-cluster-demo">
+          <div class="layout-box alt">Action</div>
+          <div class="layout-box alt">Action</div>
+          <div class="layout-box alt">Action</div>
+          <div class="layout-box alt">Wrap</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout-lab-section">
+      <h2>Equal Grids</h2>
+      <p>These are the default repeated equal-column compositions. Responsive behavior is part of the Global Class, not a page-level decision.</p>
+      <div class="layout-demo grid-2">
+        <div class="layout-box">grid-2</div><div class="layout-box alt">6 / 6</div>
+      </div>
+      <div class="layout-demo grid-3" style="margin-top:var(--una-space-24-fixed)">
+        <div class="layout-box">grid-3</div><div class="layout-box alt">4 / 4 / 4</div><div class="layout-box">Equal</div>
+      </div>
+      <div class="layout-demo grid-4" style="margin-top:var(--una-space-24-fixed)">
+        <div class="layout-box">grid-4</div><div class="layout-box alt">3 / 3 / 3 / 3</div><div class="layout-box">Equal</div><div class="layout-box alt">Equal</div>
+      </div>
+    </section>
+
+    <section class="layout-lab-section">
+      <h2>Asymmetric Grids</h2>
+      <p>The names communicate visual balance while the implementation follows the 12-column relationship.</p>
+      <div class="stack">
+        <div class="layout-demo grid-60-40"><div class="layout-box">grid-60-40<br>7 / 5</div><div class="layout-box alt">Secondary</div></div>
+        <div class="layout-demo grid-40-60"><div class="layout-box">grid-40-60<br>5 / 7</div><div class="layout-box alt">Dominant</div></div>
+        <div class="layout-demo grid-70-30"><div class="layout-box">grid-70-30<br>8 / 4</div><div class="layout-box alt">Secondary</div></div>
+        <div class="layout-demo grid-30-70"><div class="layout-box">grid-30-70<br>4 / 8</div><div class="layout-box alt">Dominant</div></div>
+      </div>
+    </section>
+
+    <section class="layout-lab-section">
+      <h2>Reverse Modifier</h2>
+      <p><code class="layout-code">grid-reverse</code> changes visual order without creating duplicate markup. On mobile the source order returns unless a component later proves a different responsive order is required.</p>
+      <div class="layout-demo grid-60-40 grid-reverse">
+        <div class="layout-box">First in DOM</div>
+        <div class="layout-box alt">Second in DOM</div>
+      </div>
+    </section>
+
+    <section class="layout-lab-section">
+      <h2>Section Spacing</h2>
+      <p>Section classes are numeric and map directly to the approved Fixed or Fluid spacing variables. No Compact / Default / Spacious presets.</p>
+      <div class="grid-3">
+        <div class="layout-section-demo section-48-fixed"><div>section-48-fixed</div></div>
+        <div class="layout-section-demo section-96-fluid"><div>section-96-fluid</div></div>
+        <div class="layout-section-demo section-140-fluid"><div>section-140-fluid</div></div>
+      </div>
+      <p class="layout-note" style="margin-top:var(--una-space-16-fixed)">Available V1 section classes: 40, 48, 56, 64, 80, 96, 120, then 140–300 in 20px increments; each has Fixed and Fluid variants.</p>
+    </section>
+
+    <section class="layout-lab-section">
+      <h2>Bleed Right</h2>
+      <p>Bleed is structural and separate from grid proportion. The content remains anchored to the 1200px canvas while the selected child extends toward the viewport edge.</p>
+    </section>
+  </main>
+
+  <section class="bleed-stage section-64-fluid">
+    <div class="container-full grid-40-60">
+      <div class="stack">
+        <h3>Content stays on-grid.</h3>
+        <p>The bleed class belongs to the media/surface child, not to the whole page or an arbitrary widget offset.</p>
+      </div>
+      <div class="bleed-right"><div class="layout-box dark">bleed-right → viewport edge</div></div>
+    </div>
+  </section>
+
+  <main class="layout-lab-shell" style="padding-top:0">
+    <section class="layout-lab-section">
+      <h2>Bleed Left</h2>
+      <p>The left variant mirrors the same structural rule.</p>
+    </section>
+  </main>
+
+  <section class="bleed-stage section-64-fluid">
+    <div class="container-full grid-60-40">
+      <div class="bleed-left"><div class="layout-box dark">bleed-left → viewport edge</div></div>
+      <div class="stack">
+        <h3>Same DOM responsibility.</h3>
+        <p>At smaller breakpoints the bleed returns to the safe stacked composition rather than preserving desktop viewport-escape geometry.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="layout-lab-shell" style="padding-top:var(--una-space-64-fluid)">
+    <section class="layout-lab-section">
+      <h2>V1 Layout Contract</h2>
+      <div class="grid-2">
+        <div class="layout-demo stack"><h3>Containers + Flow</h3><p><code>container-full</code><br><code>container-read</code><br><code>stack</code><br><code>cluster</code></p></div>
+        <div class="layout-demo stack"><h3>Grids</h3><p><code>grid-2</code><br><code>grid-3</code><br><code>grid-4</code><br><code>grid-60-40</code><br><code>grid-40-60</code><br><code>grid-70-30</code><br><code>grid-30-70</code></p></div>
+        <div class="layout-demo stack"><h3>Modifiers</h3><p><code>grid-reverse</code><br><code>bleed-left</code><br><code>bleed-right</code></p></div>
+        <div class="layout-demo stack"><h3>Sections</h3><p><code>section-{size}-fixed</code><br><code>section-{size}-fluid</code></p></div>
+      </div>
+      <p class="layout-note" style="margin-top:var(--una-space-24-fixed)">Alignment, unusual proportions, custom ordering, and one-off compositions remain Elementor local overrides until repetition proves a new Global Class is justified.</p>
+    </section>
+  </main>
+</body>
+</html>
