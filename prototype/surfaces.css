@@ -1,20 +1,25 @@
-/* UNA-Elementor Surfaces Lab — QA mirror of Elementor Global Classes. */
+/* UNA-Elementor Surfaces Lab — QA mirror of Elementor Global Classes.
+   Each surface owns deterministic foreground roles. No opacity-based muted text. */
 .surface-light{background:var(--una-white);color:var(--una-neutral-darker)}
 .surface-neutral{background:var(--una-neutral-lightest);color:var(--una-neutral-darker)}
-.surface-primary{background:var(--una-primary-base);color:var(--una-white)}
-.surface-secondary{background:var(--una-secondary-base);color:var(--una-white)}
+.surface-primary{background:var(--una-primary-dark);color:var(--una-primary-lightest)}
+.surface-secondary{background:var(--una-secondary-dark);color:var(--una-secondary-lightest)}
 .surface-dark{background:var(--una-neutral-darkest);color:var(--una-neutral-lightest)}
-.surface-light a,.surface-neutral a,.surface-primary a,.surface-secondary a,.surface-dark a{color:inherit}
+.surface-primary h1,.surface-primary h2,.surface-primary h3,.surface-primary h4,.surface-primary h5,.surface-primary h6,.surface-secondary h1,.surface-secondary h2,.surface-secondary h3,.surface-secondary h4,.surface-secondary h5,.surface-secondary h6,.surface-dark h1,.surface-dark h2,.surface-dark h3,.surface-dark h4,.surface-dark h5,.surface-dark h6{color:var(--una-white)}
+.surface-primary .lead,.surface-primary .small,.surface-primary .meta,.surface-primary .caption,.surface-primary .helper-text,.surface-primary .overline,.surface-primary .legal-text{color:var(--una-primary-lightest)}
+.surface-secondary .lead,.surface-secondary .small,.surface-secondary .meta,.surface-secondary .caption,.surface-secondary .helper-text,.surface-secondary .overline,.surface-secondary .legal-text{color:var(--una-secondary-lightest)}
+.surface-dark .lead,.surface-dark .small,.surface-dark .meta,.surface-dark .caption,.surface-dark .helper-text,.surface-dark .overline,.surface-dark .legal-text{color:var(--una-neutral-lighter)}
+.surface-light a,.surface-neutral a{color:inherit}.surface-primary a,.surface-secondary a,.surface-dark a{color:var(--una-white)}
 .surface-lab{width:min(100% - 40px,var(--una-width-content));margin-inline:auto;padding-block:var(--una-space-64-fluid) var(--una-space-120-fluid)}
 .surface-lab-head{display:grid;gap:var(--una-space-16-fixed);max-width:var(--una-width-read);margin-bottom:var(--una-space-48-fluid)}
 .surface-stack{display:grid;gap:var(--una-space-24-fixed)}
 .surface-demo{padding:var(--una-space-48-fluid);border-radius:var(--una-radius-24);overflow:hidden}
 .surface-demo-content{display:grid;gap:var(--una-space-16-fixed);max-width:var(--una-width-read)}
-.surface-demo-meta{font-size:14px;opacity:.8}
+.surface-demo-meta{font-size:14px}
 .surface-demo-link{font-weight:700;text-underline-offset:4px}
 .surface-swatch-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--una-space-12-fixed)}
 .surface-swatch{min-height:120px;border-radius:var(--una-radius-16);padding:var(--una-space-16-fixed);display:flex;align-items:flex-end;font-weight:700}
 .surface-light.surface-swatch,.surface-neutral.surface-swatch{border:1px solid var(--una-neutral-lighter)}
-.surface-rule{padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16);background:var(--una-white)}
+.surface-rule{padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16);background:var(--una-white);color:var(--una-neutral-darker)}
 @media(max-width:800px){.surface-swatch-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.surface-lab{width:min(100% - 32px,var(--una-width-content));padding-top:var(--una-space-40-fluid)}.surface-demo{padding:var(--una-space-32-fixed)}.surface-swatch-row{grid-template-columns:1fr}}
