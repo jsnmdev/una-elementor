@@ -104,7 +104,7 @@
   --una-space-280-fluid: clamp(144px, 17vw, 280px);
   --una-space-300-fluid: clamp(152px, 18vw, 300px);
 
-  /* Prototype compatibility aliases. These keep the static harness speaking the same values as Elementor. */
+  /* Prototype compatibility aliases */
   --color-white: var(--una-white);
   --color-black: var(--una-black);
   --color-transparent: var(--una-transparent);
@@ -192,7 +192,7 @@
   --space-300-fluid: var(--una-space-300-fluid);
 }
 
-/* Variables reference page consumes its own system. */
+/* Variables reference page consumes the system above. */
 .variables-page { background: var(--una-neutral-lightest); color: var(--una-neutral-darkest); }
 .variables-shell { width: min(calc(100% - (var(--una-gutter-content) * 2)), var(--una-width-content)); margin-inline: auto; padding-block: var(--una-space-56-fixed) var(--una-space-96-fixed); }
 .variables-hero { display: grid; gap: var(--una-space-16-fixed); max-width: var(--una-width-read); margin-bottom: var(--una-space-48-fixed); }
@@ -208,7 +208,7 @@
 .variable-card { background: var(--una-white); border: 1px solid var(--una-neutral-light); border-radius: var(--una-radius-16); padding: var(--una-gutter-content); min-width: 0; }
 .variable-name { font-weight: 800; font-size: 14px; }
 .variable-value { margin-top: var(--una-space-4-fixed); font-size: 13px; color: var(--una-neutral-dark); overflow-wrap: anywhere; }
-.swatch { height: var(--una-space-72-fixed, 72px); border-radius: var(--una-radius-12); border: 1px solid color-mix(in srgb, var(--una-black) 8%, transparent); margin-bottom: var(--una-space-12-fixed); }
+.swatch { height: var(--una-space-64-fixed); border-radius: var(--una-radius-12); border: 1px solid color-mix(in srgb, var(--una-black) 8%, transparent); margin-bottom: var(--una-space-12-fixed); }
 .color-family { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap: var(--una-space-8-fixed); }
 .color-token { min-width: 0; }
 .color-token .swatch { height: var(--una-space-80-fixed); }
