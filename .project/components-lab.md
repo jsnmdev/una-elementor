@@ -14,7 +14,7 @@ This is the required default for reusable components with predictable variations
 
 Example:
 
-`icon-card + icon-card--icon-left + icon-md + surface-neutral`
+`icon-card + icon-card--icon-left + icon-card--icon-lg + surface-neutral`
 
 ### Base Component
 Owns only what is universally true for that component:
@@ -53,7 +53,7 @@ Forbidden examples:
 - `provider-card-small-left-neutral`
 
 Preferred:
-- `icon-card + icon-card--icon-left + icon-lg + surface-dark`
+- `icon-card + icon-card--icon-left + icon-card--icon-lg + surface-dark`
 - `component-card + component-card--media-right + surface-primary`
 
 Before creating any new class, ask:
@@ -67,6 +67,7 @@ If composition solves the need, do not create the new combination class.
 The goal is a small, durable class vocabulary—not hundreds of narrowly combined classes.
 
 ## Current V1 Review Set
+### Larger / structural components
 - Service Card
 - Provider Card
 - Review Card
@@ -77,11 +78,41 @@ The goal is a small, durable class vocabulary—not hundreds of narrowly combine
 - Icon List
 - Ordered List / Steps
 - Tabs
+
+### Small Components V1
 - Rating
 - Avatar / Avatar Stack
 - Promo
 - Counter
-- Icon Card (next)
+- Icon Card
+- Badge / Pill
+- Stat / Metric
+- Logo / Trust Mark
+
+Divider is intentionally not duplicated because Elementor/Atomic already supplies that primitive. Small Components V1 stops here unless real page assembly proves another primitive is repeatedly missing.
+
+## Icon Card Reference Pattern
+Base:
+- `icon-card`
+
+Orientation modifiers:
+- `icon-card--icon-left`
+- `icon-card--icon-right`
+- no orientation modifier = stacked
+
+Size modifiers:
+- `icon-card--icon-sm`
+- `icon-card--icon-md`
+- `icon-card--icon-lg`
+
+Context uses existing Foundation surfaces rather than Icon Card color classes:
+- `surface-light`
+- `surface-neutral`
+- `surface-primary`
+- `surface-secondary`
+- `surface-dark`
+
+Responsive horizontal variants return to stacked composition on constrained mobile widths.
 
 ## Component Rule
 A structure becomes a component when it repeats, owns a clear content responsibility, and should update consistently across the site. One-off compositions remain assemblies of approved Foundation classes and local content.
