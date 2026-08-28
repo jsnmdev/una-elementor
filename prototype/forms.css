@@ -1,0 +1,24 @@
+/* UNA-Elementor Forms — scoped Gravity Forms QA mirror. Production CSS remains child-theme scoped under .gf-form. */
+.forms-lab{width:min(100% - 40px,var(--una-width-content));margin-inline:auto;padding-block:var(--una-space-64-fluid) var(--una-space-120-fluid)}
+.forms-head{display:grid;gap:var(--una-space-16-fixed);max-width:var(--una-width-read);margin-bottom:var(--una-space-48-fluid)}
+.forms-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--una-space-32-fixed);align-items:start}
+.gf-form{display:grid;gap:var(--una-space-24-fixed);font-family:var(--una-font-text);color:var(--una-neutral-darker)}
+.gf-form .gform_fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--una-space-20-fixed,var(--una-space-24-fixed))}
+.gf-form .gfield{display:grid;gap:var(--una-space-8-fixed)}
+.gf-form .gfield--width-full{grid-column:1/-1}
+.gf-form label,.gf-form legend{font-weight:700;color:var(--una-neutral-darkest)}
+.gf-form .gfield_required{color:#9a2f2f;margin-left:4px}
+.gf-form input:not([type=checkbox]):not([type=radio]),.gf-form select,.gf-form textarea{width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--una-neutral-light);border-radius:var(--una-radius-8);background:var(--una-white);color:var(--una-neutral-darkest);font:inherit}
+.gf-form textarea{min-height:140px;resize:vertical}
+.gf-form input:focus,.gf-form select:focus,.gf-form textarea:focus{outline:3px solid var(--una-primary-light);outline-offset:2px;border-color:var(--una-primary-dark)}
+.gf-form .gfield_description{font-size:13px;line-height:1.5;color:var(--una-neutral-dark)}
+.gf-form .gfield_error input,.gf-form .gfield_error select,.gf-form .gfield_error textarea{border-color:#a33a3a}
+.gf-form .validation_message{font-size:13px;font-weight:700;color:#8a2525}
+.gf-form .gform_footer{display:flex;align-items:center;gap:var(--una-space-16-fixed)}
+.gf-form .gform_button{min-height:44px;padding:13px var(--una-space-24-fixed);border:1px solid transparent;border-radius:var(--una-radius-full);background:var(--una-primary-darkest);color:var(--una-white);font:700 16px/1.15 var(--una-font-text);text-align:center;cursor:pointer}
+.gf-form .gform_button:hover{background:var(--una-primary-dark)}
+.form-card{padding:var(--una-space-32-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-24);background:var(--una-white)}
+.form-rule{padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16);background:var(--una-white)}
+.form-rules{display:grid;gap:var(--una-space-16-fixed)}
+@media(max-width:800px){.forms-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.forms-lab{width:min(100% - 32px,var(--una-width-content));padding-top:var(--una-space-40-fluid)}.gf-form .gform_fields{grid-template-columns:1fr}.gf-form .gfield{grid-column:1/-1}.gf-form .gform_footer{display:block}.gf-form .gform_button{width:100%}.form-card{padding:var(--una-space-24-fixed)}}
