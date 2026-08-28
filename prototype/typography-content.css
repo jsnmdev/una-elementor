@@ -1,0 +1,20 @@
+/* UNA-Elementor Classes / Typography + Content — QA mirror of Elementor Global Classes. */
+.display-large{font-family:var(--una-font-heading);font-size:var(--una-display-lg);font-weight:700;line-height:1.02}
+.display-medium{font-family:var(--una-font-heading);font-size:var(--una-display-md);font-weight:700;line-height:1.06}
+.display-small{font-family:var(--una-font-heading);font-size:var(--una-display-sm);font-weight:700;line-height:1.1}
+.lead{font-family:var(--una-font-text);font-size:clamp(18px,1.4vw,20px);font-weight:400;line-height:1.55;max-width:62ch}
+.small{font-family:var(--una-font-text);font-size:clamp(14px,1vw,16px);line-height:1.5}
+.caption{font-family:var(--una-font-text);font-size:clamp(13px,.9vw,14px);line-height:1.45}
+.overline{font-family:var(--una-font-text);font-size:clamp(12px,.9vw,14px);font-weight:700;line-height:1.35;letter-spacing:.12em;text-transform:uppercase}
+.meta{font-family:var(--una-font-text);font-size:14px;font-weight:600;line-height:1.45}
+.helper-text{font-family:var(--una-font-text);font-size:13px;line-height:1.5;opacity:.8}
+.legal-text{font-family:var(--una-font-text);font-size:12px;line-height:1.5;opacity:.76}
+.text-link{font-family:inherit;font-weight:700;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;color:inherit}
+.type-lab{width:min(100% - 40px,var(--una-width-content));margin-inline:auto;padding-block:var(--una-space-64-fluid) var(--una-space-120-fluid)}
+.type-lab-head{display:grid;gap:var(--una-space-16-fixed);max-width:var(--una-width-read);margin-bottom:var(--una-space-48-fluid)}
+.type-section{padding-block:var(--una-space-48-fluid);border-top:1px solid var(--una-neutral-lighter)}
+.type-section:first-of-type{border-top:0}.type-stack{display:grid;gap:var(--una-space-24-fixed)}
+.type-sample{display:grid;gap:var(--una-space-12-fixed);padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16);background:var(--una-white)}
+.type-label{font:600 13px/1.4 var(--una-font-text);color:var(--una-neutral-dark)}
+.type-dark{background:var(--una-neutral-darkest);color:var(--una-neutral-lightest);padding:var(--una-space-32-fixed);border-radius:var(--una-radius-24)}
+@media(max-width:600px){.type-lab{width:min(100% - 32px,var(--una-width-content));padding-top:var(--una-space-40-fluid)}}
