@@ -1,194 +1,211 @@
 # UNA-Elementor Operating Rules
 
 ## Mission
-UNA-Elementor is a reusable production-delivery system for WordPress + Elementor V4 projects. It exists to help teams move from a clean WordPress install to an approved, reusable, measurable, maintainable website system without page-by-page one-offs or undocumented decisions.
+UNA-Elementor is an Elementor V4 Atomic-first theme-kit and production system. It exists to create a reusable, accessible, deterministic construction language for human Elementor production and Koda 1:1 migration.
 
 ## Authority
-The human Product Owner is the final authority. Use explicit gates: `Approve`, `Revise`, `Override`.
+The human Product Owner is final authority. Use explicit gates: `Approve`, `Revise`, `Override`.
+
+`Override` never means secretly bypassing the system with page-specific CSS.
 
 ## Core Rule
-Build the system first. Approve it. Then multiply it.
-
-## Delivery Sequence
-`Client Onboarded → Brief Complete → WP Engine Install → LocalWP Pull → Build Core Page System → Internal Approval → Content Population → QA → Staging Review → Final Approval → Production`
-
-## Step 6 Rule
-Step 6 means **Build Core Page System**. It is not full content population.
-
-Do not populate all services, providers, locations, or content-heavy pages until the reusable system has passed internal approval.
+**Perfect the system before multiplying it.**
 
 ## Required Working Method
-Before changing architecture, templates, global styles, forms, tracking, or project contracts:
-1. Inspect the current WordPress/Elementor implementation and relevant project documentation once.
-2. Identify the source of truth, shared global settings, reusable components/templates, dynamic content, user journeys, and tracking requirements.
-3. Search before creating. Reuse or extend the correct global/system owner.
-4. Fix root causes rather than masking symptoms.
-5. Keep the smallest coherent change needed to satisfy the approved requirement.
+Before changing Variables, Classes, Components, Sections, Theme Builder templates, mappings, or recipes:
+1. Inspect the current UNA owner and relevant Elementor V4 architecture once.
+2. Search before creating anything new.
+3. Prefer native Elementor V4 Atomic capability.
+4. Fix the correct upstream owner.
+5. Keep every reusable class/component responsible for one understandable job.
+6. Validate mobile first.
+7. Do not preserve a design that requires a system violation.
 
-## No Band-Aids
-Do not use:
-- duplicated business information when a shared source can own it;
-- copied Elementor sections when a reusable component/template belongs there;
-- one-off CSS that fights global styles;
-- arbitrary spacing/typography values that bypass the approved system;
-- fake tracking states or claims that analytics is working when access/configuration is missing;
-- duplicate forms for the same business action without a real routing reason;
-- unnecessary plugins or abstractions added for convenience;
-- broad redesigns unrelated to the approved milestone.
+## Canonical Ownership Chain
+`Content/Data → Variables → Global Classes → Atomic Elements → Components → Theme Builder / Section Recipes → Page Recipes`
 
-## Source of Truth
-Every important value should have an intentional owner. Prefer global/site-level sources for shared practice information and reusable content. Derive or reference shared values rather than synchronizing duplicate copies.
+Pages consume the chain. They do not create a new styling layer.
 
-## Elementor System Integrity
-Global colors, typography, spacing, containers, breakpoints, buttons, forms, component patterns, and Theme Builder templates are contracts. Do not bypass them locally because a single page is inconvenient.
+## Elementor V4 Atomic First
+Use Atomic Elements when the required capability exists.
 
-A missing capability should lead to an intentional system extension only when the requirement is reusable or materially justified.
+Prefer native:
+- Atomic Div/Flex/Grid layout;
+- Atomic Heading/Paragraph/Link/Button/Image/Icon elements;
+- Variables;
+- Global Classes;
+- Components;
+- responsive style controls;
+- states/interactions;
+- Theme Builder structures.
 
-## Content and Data Architecture
-Before template multiplication, define:
-- global business information;
-- service/provider/location relationships;
-- reusable vs page-specific content;
-- dynamic fields where justified;
-- URL/permalink structure;
-- taxonomy where justified;
-- booking/contact destinations;
-- location/provider/service linking patterns.
+Use legacy widgets only when the production requirement is not yet available reliably in Atomic V4 or an approved integration requires them.
 
-Avoid speculative data models. Use dynamic data only when it improves maintainability, consistency, or scale.
+Do not recreate Elementor with a parallel CSS framework.
 
-## Reusable Component States
-Reusable components must account for realistic states, including:
-- desktop/tablet/mobile;
-- hover/focus/active;
-- long titles and body copy;
-- optional or missing images/content;
-- varying CTA text;
-- validation/error states where applicable;
-- different review counts/content lengths.
+## Hard No Band-Aid Rule
+Forbidden in UNA core and Koda-compatible builds:
+- page-specific CSS;
+- custom CSS used to repair one composition;
+- inline style declarations;
+- local class styling as a page-level override strategy;
+- arbitrary values outside approved Variables/Classes;
+- `nth-child` or DOM-position tricks for variants;
+- duplicate mobile/desktop content used to fix responsive layout;
+- `display:none` used to hide responsive failures during system validation;
+- duplicate components created because an existing owner is inconvenient;
+- custom JavaScript for layout/visual behavior Elementor can express natively;
+- fabricated Elementor JSON or guessed internal references.
 
-## Functional Layer
-### Gravity Forms
-Use reusable forms for core actions such as appointment requests, contact, and inquiries. Define routing/recipients, confirmations, validation/error states, spam protection, appropriate privacy/consent language, notification testing, and conversion firing only after successful submission.
+If a composition fails, resolve in this order:
+1. native Elementor V4 setting;
+2. existing Variable;
+3. existing Global Class;
+4. existing Component;
+5. existing Section recipe/modifier;
+6. reusable upstream system improvement;
+7. redesign the composition.
 
-Do not collect unnecessary sensitive patient information through general marketing forms.
+## Variables Rule
+Variables own reusable values only.
 
-### Trustindex
-Treat Trustindex as a review data source, not the site design system. Control the surrounding presentation through Elementor and the approved component system.
+Use the approved color ramps, type values, spacing/size values, widths, and other supported primitives. Do not introduce near-duplicate values for convenience.
 
-### Yoast SEO
-Use Yoast for metadata, canonical behavior, schema/breadcrumb support, indexation controls, and sitemap behavior where appropriate. Do not treat plugin installation as completion of technical SEO.
+## Typography Rule
+Typography is deterministic.
 
-## User Journey Architecture
-Every public page should have a role within:
-`Discover → Land → Explore → Intent → Convert`
+Every role must define family, responsive size, weight, line-height, semantic purpose, and surface behavior.
 
-Primary dental actions are:
-- Book
-- Call
-- Visit / Directions
-- Contact
+Minimum practical floors:
+- Body: 16px equivalent minimum on mobile.
+- Small/Meta carrying meaningful information: normally 15px minimum.
+- Caption/Helper/Overline: 14px minimum when genuinely secondary.
+- Legal may be smaller only when appropriate and still readable/reflow-safe.
 
-Page and component decisions should support one or more of those business actions without forcing CTAs where they do not belong.
+Do not create hierarchy by making important supporting copy tiny.
 
-## Measurement Architecture
-Measurement is action-first and vendor-independent.
+## Contrast Rule
+WCAG 2.2 AA is minimum:
+- normal text: 4.5:1;
+- large text: 3:1;
+- meaningful UI components/graphics: 3:1 where applicable.
 
-### Discovery
-Google Search Console can describe Google Search visibility, queries, clicks, and landing pages.
+UNA should exceed the floor for body/supporting text on Dark, Primary, and Secondary surfaces.
 
-### On-site behavior
-GA4 / gtag / GTM can measure landing, navigation, interaction, and business actions when connected.
+Do not use arbitrary opacity to make supporting text look secondary on dark surfaces. Choose an approved contrasting foreground shade from the Variables system.
 
-### Calls and other systems
-CallRail or another approved system may extend call attribution when available.
+Every surface must deterministically define foreground roles for:
+- headings;
+- body;
+- supporting/meta text;
+- links;
+- icons;
+- borders/dividers;
+- controls/forms;
+- button context.
 
-### Standard action points
-Use consistent measurement names or mappings for:
-- `book_appointment`
-- `phone_click`
-- `form_start`
-- `form_submit`
-- `directions_click`
-- `external_booking`
+Koda must never infer contrast.
 
-## Tracking Fallback
-If analytics/tracking access is unavailable, do not block the website build.
+## Class Rule
+One class = one reusable responsibility.
 
-Build the site **tracking-ready**:
-- standardize key actions;
-- expose stable selectors/data attributes where needed;
-- document the event map;
-- mark the connection as pending.
+Prefer composition:
+`hero + hero--split + grid-40-60 + bleed-right + surface-dark`
 
-Never claim tracking is operational until it has been configured and verified.
+Never combination classes like:
+`hero-home-dark-right-bleed`.
+
+## Components Rule
+Components assemble Atomic Elements + Classes. They own internal relationships and allowed modifiers, not page-specific styling.
+
+Reuse before creating. Improve the existing owner when the repeated need belongs there.
+
+## Section Rule
+Sections are recipes/assemblies, not monolithic custom widgets.
+
+A section recipe must define:
+- purpose;
+- semantic/source order;
+- approved components;
+- allowed layout compositions;
+- allowed modifiers;
+- surface compatibility;
+- mobile/tablet/desktop behavior.
+
+## Mobile-First Rule
+Design and QA:
+`Mobile → Tablet → Desktop`
+
+Desktop complexity must enhance a complete mobile composition.
+
+During system stress testing, do not duplicate or hide content to make breakpoints work.
+
+## Elementor Native Positioning Rule
+Relative/absolute positioning, z-index, overflow, order, alignment, sizing, and responsive controls are allowed when Elementor exposes them natively.
+
+**Positioning creates composition. It never repairs broken structure.**
+
+## Koda Rule
+Koda is deterministic and non-AI.
+
+Koda must not decide design intent. UNA must predefine:
+- typography role;
+- surface/foreground contract;
+- component recipe;
+- section recipe;
+- responsive behavior;
+- class/variable identities;
+- Elementor element/property mapping.
+
+Conceptual pipeline:
+`Content JSON → Recipe IDs → UNA IDs → verified Elementor mappings → Elementor JSON`
+
+## JSON / Mapping Rule
+Machine-readable manifests are required, but Elementor internals must be verified from real V4 Atomic exports and official structures.
+
+Never create fake output JSON because the schema looks obvious.
+
+Required UNA manifests eventually include:
+- Variables;
+- Typography;
+- Surfaces;
+- Classes;
+- Components;
+- Sections;
+- Responsive rules;
+- Recipes;
+- Elementor mappings;
+- schema/version metadata.
+
+## Theme-Kit Generator Rule
+UNA may generate or validate Elementor V4 Atomic theme-kit structures only after the target Elementor version's import/export representation is verified.
+
+The goal is 1:1 repeatability, not best-effort visual similarity.
 
 ## Accessibility
-Accessibility is the governing standard. Prefer semantic HTML and native controls. Use ARIA only when native semantics are insufficient.
+Accessibility is part of the architecture, not post-build polish.
 
-Validate keyboard operation, visible focus, labels/names, contrast, reflow/zoom, logical heading structure, and responsive behavior.
+Validate:
+- contrast;
+- keyboard operation;
+- visible focus;
+- semantic source order;
+- correct labels/names;
+- touch targets;
+- reflow/zoom;
+- heading structure;
+- readable supporting text.
 
-## Technical SEO
-Establish, as applicable:
-- permalink conventions;
-- indexation behavior;
-- XML sitemap behavior;
-- robots rules;
-- canonical behavior;
-- breadcrumb hierarchy;
-- service/location/provider relationships;
-- structured-data responsibility;
-- semantic heading structure;
-- internal-linking patterns;
-- redirect requirements when replacing existing URLs.
-
-## Performance Guardrails
-Review:
-- image dimensions and modern formats;
-- font loading;
-- video/embed strategy;
-- third-party script weight;
-- Trustindex and analytics impact;
-- Elementor asset discipline;
-- caching compatibility;
-- Core Web Vitals.
-
-Do not add optimization complexity without evidence, but do not knowingly ship avoidable waste.
-
-## Pre-Population Stress Test
-Before Step 6 approval, stress-test representative service/provider/location templates with:
-- short and long content;
-- long headings;
-- missing/optional images;
-- different CTA text;
-- varying review content;
-- realistic mobile/tablet/desktop widths.
-
-The purpose is to prove the system can be safely multiplied during content population.
-
-## Step 6 Definition of Done
-Step 6 is complete when:
-- content/data architecture is defined;
-- Elementor foundation and global system are established;
-- global header/footer/navigation/CTA patterns are approved;
-- reusable dental components exist and their states are validated;
-- representative core templates are built;
-- Gravity Forms / Trustindex / Yoast patterns are established;
-- Book / Call / Visit / Contact journeys work;
-- measurement points and tracking fallback are documented;
-- technical SEO and performance guardrails are established;
-- responsive, accessibility, SEO, functional, and stress tests pass;
-- the page system receives explicit internal approval.
-
-Only then begin production-scale content population.
-
-## GitHub Role
-GitHub stores durable project memory: architecture, standards, decisions, approval state, event maps, QA requirements, and handoff information.
-
-Do not pretend the WordPress database or Elementor page content is ordinary source-controlled application code. The live WordPress/Elementor build belongs in LocalWP / WP Engine environments.
-
-## Change Discipline
-Preserve approved decisions unless meaningful new evidence justifies reopening them. Do not expand scope because a new idea appears while the current milestone is unfinished.
+## QA Gate
+A layer cannot be approved until it passes:
+- mobile-first visual QA;
+- typography readability;
+- contrast QA;
+- ownership audit;
+- no-local-override audit;
+- no-custom-CSS audit;
+- Elementor-native reproducibility review;
+- deterministic Koda identity review where applicable.
 
 ## Completion
-A change is done when it satisfies the approved intent, works responsively, passes applicable accessibility/SEO/performance/measurement checks, and is ready for the next explicit gate. Do not manufacture additional work after the requested outcome is production-ready.
+A UNA layer is complete only when it is visually approved, accessible, reusable, Elementor V4-native, free of page-level repair dependencies, and precise enough to be mapped deterministically.
