@@ -32,3 +32,14 @@
 .step-number {
   font-size: var(--h5);
 }
+
+.cta-heading {
+  max-width: 15ch;
+  text-wrap: balance;
+}
+
+@media (max-width: 767px) {
+  .cta-heading {
+    max-width: none;
+  }
+}
