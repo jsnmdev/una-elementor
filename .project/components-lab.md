@@ -5,6 +5,67 @@ READY FOR QA
 
 Foundation V1 is approved. Components are now allowed to be built, but they must consume Foundation rather than recreate it.
 
+## Governing Component Architecture
+Default pattern:
+
+`Base Component + Modifier Classes + Foundation Context Classes + Content`
+
+This is the required default for reusable components with predictable variations.
+
+Example:
+
+`icon-card + icon-card--icon-left + icon-md + surface-neutral`
+
+### Base Component
+Owns only what is universally true for that component:
+- required internal structure;
+- component-specific relationships;
+- component-specific interaction/behavior where applicable.
+
+### Modifier Classes
+Own independent, reusable variations such as:
+- orientation;
+- size;
+- density;
+- alignment;
+- optional structural states.
+
+### Foundation Context Classes
+Continue to own:
+- surfaces;
+- typography/content roles;
+- layout utilities;
+- spacing system;
+- media ratios;
+- buttons;
+- focus/accessibility defaults;
+- general responsive behavior.
+
+### Content
+Text, SVGs, images, labels, provider details, service details, CTA wording and business data remain content.
+
+## Class Explosion Rule
+Avoid combinatorial classes. Never create a class that permanently combines multiple independent decisions when those decisions can be composed from existing base/modifier/context classes.
+
+Forbidden examples:
+- `icon-card-large-left-dark`
+- `service-card-photo-right-primary`
+- `provider-card-small-left-neutral`
+
+Preferred:
+- `icon-card + icon-card--icon-left + icon-lg + surface-dark`
+- `component-card + component-card--media-right + surface-primary`
+
+Before creating any new class, ask:
+1. Is this responsibility already owned by Foundation?
+2. Is this an independent modifier that will repeat?
+3. Can existing classes be composed instead?
+4. Would this new class create future combinations we would also need to duplicate?
+
+If composition solves the need, do not create the new combination class.
+
+The goal is a small, durable class vocabulary—not hundreds of narrowly combined classes.
+
 ## Current V1 Review Set
 - Service Card
 - Provider Card
@@ -12,8 +73,15 @@ Foundation V1 is approved. Components are now allowed to be built, but they must
 - FAQ
 - CTA Block
 - Location / Contact Block
-
-No additional component is added until this initial set is visually and structurally approved.
+- Day / Hours
+- Icon List
+- Ordered List / Steps
+- Tabs
+- Rating
+- Avatar / Avatar Stack
+- Promo
+- Counter
+- Icon Card (next)
 
 ## Component Rule
 A structure becomes a component when it repeats, owns a clear content responsibility, and should update consistently across the site. One-off compositions remain assemblies of approved Foundation classes and local content.
