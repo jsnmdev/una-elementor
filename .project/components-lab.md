@@ -1,11 +1,11 @@
-# UNA-Elementor Components Lab
+# UNA-Elementor Components V1
 
 ## Status
-IN DESIGN
+READY FOR QA
 
-The Components Lab is the dedicated visual review page for reusable Elementor-facing components. It is intentionally separate from full reference pages so individual components can be reviewed, revised, and approved before being multiplied across templates.
+Foundation V1 is approved. Components are now allowed to be built, but they must consume Foundation rather than recreate it.
 
-## Current Review Set
+## Current V1 Review Set
 - Service Card
 - Provider Card
 - Review Card
@@ -13,15 +13,42 @@ The Components Lab is the dedicated visual review page for reusable Elementor-fa
 - CTA Block
 - Location / Contact Block
 
-## Rule
-A structure becomes a component when it repeats, owns a clear content responsibility, and should update consistently across the site. One-off compositions should remain assemblies of approved Foundation classes and local content rather than becoming speculative components.
+No additional component is added until this initial set is visually and structurally approved.
 
-## Implementation Boundary
-This static HTML/CSS page is a review harness. Production implementation remains Elementor-first:
+## Component Rule
+A structure becomes a component when it repeats, owns a clear content responsibility, and should update consistently across the site. One-off compositions remain assemblies of approved Foundation classes and local content.
 
-`Elementor Settings + Variables + Responsive Settings → Global Classes / reusable Elementor component`
+## Foundation Composition Rule
+Components must reuse the approved Foundation for:
+- Variables;
+- container/grid/stack/cluster behavior;
+- surfaces;
+- typography/content roles;
+- buttons;
+- media ratios;
+- focus/accessibility defaults;
+- general responsive behavior.
 
-Do not treat the review harness CSS as the final WordPress implementation contract.
+Component-specific CSS may own only structure or behavior genuinely unique to that reusable component.
+
+### Forbidden Component Reimplementation
+Do not create component-specific replacements for:
+- buttons;
+- media ratios/object-fit;
+- overline/meta/text-link roles;
+- generic grids;
+- generic surfaces;
+- generic focus styles;
+- arbitrary spacing scales.
+
+If a component repeatedly needs a behavior the Foundation cannot provide, treat that as evidence for a Foundation review rather than silently duplicating it inside the component.
+
+## Production Boundary
+The static HTML/CSS page is the QA harness. Production implementation remains Elementor-first:
+
+`Elementor Settings + UNA Variables + approved Global Classes → reusable Elementor component`
+
+Local overrides remain valid for true one-off content/crop/composition exceptions.
 
 ## Review Order
 Review each component for:
@@ -31,7 +58,7 @@ Review each component for:
 - missing/optional media states;
 - mobile/tablet/desktop behavior;
 - keyboard/focus behavior where interactive;
-- clear separation between content and presentation;
+- Foundation reuse;
 - whether the component truly deserves reuse.
 
-Only approved components should be promoted into the reusable production library.
+Only approved components are promoted into the reusable production library.
