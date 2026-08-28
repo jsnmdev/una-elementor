@@ -28,7 +28,7 @@ Step 6 begins only after the current WP Engine install has been pulled into Loca
 
 Implementation sequence:
 
-`Pulled WP Engine Install → Verify Clean WordPress → Install/Verify Hello Elementor Parent → Install + Activate UNA Hello Child Theme → Install/Verify Elementor V4 + Approved Plugins → Verify Theme Setup → Content/Data Architecture → Elementor Atomic Foundation → Global Site System → Components → Core Templates → Functional Layer → User Journeys + Measurement → Technical QA + Stress Test → Internal Approval → Content Population`
+`Pulled WP Engine Install → Verify Clean WordPress → Install/Verify Hello Elementor Parent → Install + Activate UNA Hello Child Theme → Install/Verify Elementor V4 + Approved Plugins → Verify Theme Setup → Content/Data Architecture → Elementor Atomic Foundation → Instatic Rapid Prototype / Visual QA → Global Site System → Components → Core Templates → Functional Layer → User Journeys + Measurement → Technical QA + Stress Test → Internal Approval → Content Population`
 
 ### 6.0 Theme Setup Gate
 
@@ -125,7 +125,34 @@ Surface context should preferably be owned by the parent section/component so de
 
 6.2 must end with a Foundation Test Page that demonstrates and stress-tests the approved typography, spacing, containers, surfaces, media, form controls, button matrix, icon placement, interaction/focus states, and responsive behavior.
 
-**Foundation Approved → Global Site System**
+### 6.3 Instatic Rapid Prototyping / Visual QA
+
+Instatic is the preferred rapid visual prototyping workbench for UNA-Elementor when a page, section, or template needs fast composition and responsive review before production Elementor implementation.
+
+Default prototyping loop:
+
+`UNA Variables + Global Classes + Semantic HTML → Instatic → Visual / Responsive QA → Approved DOM + Class Intent → Elementor V4 Recreation`
+
+Rules:
+- Instatic is a prototyping and QA surface, not a production dependency or replacement for Elementor;
+- preserve the UNA vocabulary when prototyping: approved variables, type roles, spacing, containers, grids, surfaces, media ratios, buttons, and component contracts;
+- prefer semantic HTML and reusable UNA-style classes over page-specific generated markup;
+- do not adopt Instatic/Core Framework utilities as a second UNA design system merely because they are available;
+- do not let Instatic-generated classes, arbitrary values, or convenience abstractions redefine approved UNA decisions;
+- visual changes discovered in Instatic must map back to the correct owner: variable, global class, component, template, or justified local override;
+- if an Instatic prototype exposes a repeated missing pattern, update UNA first, then implement it in Elementor;
+- production acceptance is based on the Elementor implementation, not the Instatic prototype.
+
+Use Instatic when it materially shortens visual iteration, especially for:
+- Foundation Test Pages;
+- representative home/service/provider/location templates;
+- complex bleed, overlap, grid, and responsive compositions;
+- rapid type-scale and content-measure QA;
+- section-by-section approval before Elementor build-out.
+
+GitHub static prototypes may remain useful for durable reference and inspection, but Instatic is the preferred live prototyping canvas when available.
+
+**Foundation Approved + Prototype Validated → Global Site System**
 
 ## Step 6 Gate
 
