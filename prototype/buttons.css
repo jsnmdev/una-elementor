@@ -1,0 +1,25 @@
+/* UNA-Elementor Classes / Buttons — QA mirror of Elementor Global Classes. */
+.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:var(--una-space-8-fixed);padding:13px var(--una-space-24-fixed);border:1px solid transparent;border-radius:var(--una-radius-full);font-family:var(--una-font-text);font-size:16px;font-weight:700;line-height:1.15;text-decoration:none;cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,transform 160ms ease}
+.button:hover{transform:translateY(-1px)}
+.button-primary.button-on-light{background:var(--una-primary-darkest);color:var(--una-white)}
+.button-primary.button-on-light:hover{background:var(--una-primary-dark)}
+.button-secondary.button-on-light{background:var(--una-secondary-lightest);color:var(--una-secondary-darkest)}
+.button-secondary.button-on-light:hover{background:var(--una-secondary-lighter)}
+.button-outline.button-on-light{background:var(--una-transparent);border-color:var(--una-neutral-darkest);color:var(--una-neutral-darkest)}
+.button-outline.button-on-light:hover{background:var(--una-neutral-lightest)}
+.button-text.button-on-light{background:var(--una-transparent);color:var(--una-neutral-darkest);padding-inline:var(--una-space-8-fixed)}
+.button-primary.button-on-dark{background:var(--una-white);color:var(--una-primary-darkest)}
+.button-primary.button-on-dark:hover{background:var(--una-primary-lightest)}
+.button-secondary.button-on-dark{background:var(--una-secondary-lightest);color:var(--una-secondary-darkest)}
+.button-secondary.button-on-dark:hover{background:var(--una-secondary-lighter)}
+.button-outline.button-on-dark{background:var(--una-transparent);border-color:var(--una-white);color:var(--una-white)}
+.button-outline.button-on-dark:hover{background:rgba(255,255,255,.1)}
+.button-text.button-on-dark{background:var(--una-transparent);color:var(--una-white);padding-inline:var(--una-space-8-fixed)}
+.button-icon{font-size:1.05em;line-height:1}.button-lab{width:min(100% - 40px,var(--una-width-content));margin-inline:auto;padding-block:var(--una-space-64-fluid) var(--una-space-120-fluid)}
+.button-lab-head{display:grid;gap:var(--una-space-16-fixed);max-width:var(--una-width-read);margin-bottom:var(--una-space-48-fluid)}
+.button-section{padding-block:var(--una-space-48-fluid);border-top:1px solid var(--una-neutral-lighter)}.button-section:first-of-type{border-top:0}
+.button-row{display:flex;flex-wrap:wrap;gap:var(--una-space-16-fixed);align-items:center}.button-context{padding:var(--una-space-32-fixed);border-radius:var(--una-radius-24);display:grid;gap:var(--una-space-24-fixed)}
+.button-light-context{background:var(--una-white);border:1px solid var(--una-neutral-lighter)}.button-dark-context{background:var(--una-neutral-darkest);color:var(--una-white)}
+.button-rule{padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16);background:var(--una-white)}
+@media(max-width:600px){.button-lab{width:min(100% - 32px,var(--una-width-content));padding-top:var(--una-space-40-fluid)}.button-row{align-items:stretch}.button-row .button{width:100%}}
+@media(prefers-reduced-motion:reduce){.button{transition:none}.button:hover{transform:none}}
