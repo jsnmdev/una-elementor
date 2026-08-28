@@ -1,0 +1,34 @@
+:root {
+  --body: 16px;
+  --text-sm: 14px;
+  --caption: 12px;
+  --overline: 14px;
+}
+
+.small,
+.meta,
+.site-nav,
+.field-group label {
+  font-size: var(--text-sm);
+}
+
+.caption {
+  font-size: var(--caption);
+}
+
+.overline {
+  font-size: var(--overline);
+}
+
+.stat-number {
+  font-size: var(--display-sm);
+}
+
+.brand-text {
+  font-size: var(--h6);
+}
+
+.brand-mark,
+.step-number {
+  font-size: var(--h5);
+}
