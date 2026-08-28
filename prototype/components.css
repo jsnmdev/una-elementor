@@ -8,6 +8,8 @@
 .component-section-head{max-width:var(--una-width-read);margin-bottom:var(--una-space-32-fixed)}
 .component-card{border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-24);overflow:hidden}
 .component-card-body{padding:var(--una-space-24-fixed)}
+.component-card-icon{width:48px;height:48px;display:grid;place-items:center;color:var(--una-primary-darkest)}
+.component-card-icon svg{width:100%;height:100%;display:block;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .component-review{margin:0;padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-24)}
 .component-stars{letter-spacing:.12em;color:var(--una-secondary-dark)}
 .component-faq details{border-top:1px solid var(--una-neutral-lighter);padding-block:var(--una-space-16-fixed)}
