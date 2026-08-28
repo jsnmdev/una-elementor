@@ -3,287 +3,362 @@
 ## Product
 **UNA-Elementor**
 
-**Platform:** WordPress + Elementor V4
+**Platform:** WordPress + Elementor V4 Atomic Editor
 
-**Purpose:** A reusable production website builder and delivery system for creating maintainable, measurable, accessible, conversion-ready WordPress websites.
+**Purpose:** Build a reusable Elementor-native theme-kit system that is visually strong, accessible, maintainable, and deterministic enough for Koda to map 1:1 into Elementor structures.
 
-## Environment Workflow
-`WP Engine → LocalWP → Work → Push/Pull → Staging Review → Production`
+UNA is both:
+1. a human production system for Elementor teams; and
+2. the canonical construction language Koda will consume.
 
-Local = safe to build.
-Staging = safe to test.
-Production = live to customers.
+## Governing Architecture
 
-## Step 6 — Build Core Page System
+`Content/Data → Variables → Global Classes → Atomic Elements → Components → Theme Builder → Section Recipes → Page Recipes → QA → Approved Kit`
 
-Step 6 exists to establish and approve the reusable website system before content population.
+The ownership direction only moves downward. Pages consume the system; they do not repair it locally.
 
-### Architecture
-`Blank Dental Kit → Content/Data Architecture → Elementor Foundation → Global Site System → Dental Component Library → Core Templates → Functional Layer → User Journey Architecture → Measurement Architecture + Tracking Fallback → Technical SEO + Performance → System QA + Stress Test → Approval Gate → Content Population`
+## Elementor V4 Reality
 
-## 1. Blank Dental Kit
-Start from a clean WordPress install with the approved minimal plugin stack and no inherited design debt.
+Elementor V4 is Atomic-first and CSS-first. Atomic Elements have their own element type, settings, editor settings, style data, interactions, and nested elements. Global Variables, Classes, Components, responsive controls, states, and Atomic layout are native parts of the architecture.
 
-Baseline stack:
-- Elementor V4
-- Gravity Forms
-- Trustindex
-- Yoast SEO
+Use Atomic Elements wherever the production capability exists. Classic V3 widgets may coexist only where the Atomic editor does not yet provide the required feature or an approved plugin integration still depends on the legacy widget layer.
 
-Optional integrations remain project-specific and should not enter the baseline without a real requirement.
+Do not build a parallel utility-CSS framework around Elementor.
 
-## 2. Content / Data Architecture
-Define:
-- practice name, phone, addresses, hours, booking destinations, social/profile links;
-- service/provider/location relationships;
-- reusable vs page-specific content;
-- dynamic fields where they materially improve maintainability;
-- URL and permalink structure;
-- taxonomy only when justified;
-- internal linking relationships.
+## 1. Variables — Lowest Reusable Value Layer
 
-## 3. Elementor Foundation
-Elementor V4 is the styling system. UNA-Elementor does not use Tailwind or a parallel utility-CSS framework.
+Variables own reusable values, not compositions.
 
-Lock:
-- global colors;
-- typography roles;
-- spacing scale;
-- container widths;
-- responsive breakpoints;
-- button styles;
-- form styles;
-- border/radius/shadow rules;
-- media aspect ratios.
+Required domains:
+- color ramps: Primary, Secondary, Neutral, White/Black/Transparent;
+- font families;
+- type-size values where Elementor supports Variables;
+- approved spacing/size values where supported by the editor/export format;
+- content/read widths where they can be represented natively;
+- radius/border/shadow values where supported and proven useful.
 
-Preferred ownership chain:
-`Elementor Variables / Global Styles → Global Classes → Reusable Components → Theme Builder Templates → Page Content`
+### Color Ramp Rule
+Color ramps exist so foreground/background relationships can be deterministic.
 
-No page should invent its own local system when a global owner exists.
+Each brand family must include enough contrasting shades to support:
+- light surface backgrounds;
+- dark surface backgrounds;
+- readable body/supporting copy;
+- accessible links/icons;
+- borders/dividers;
+- interactive states.
 
-## 4. Global Site System
-Build reusable global structures:
-- header;
-- desktop navigation;
-- mobile navigation;
-- footer;
-- global CTA patterns;
-- breadcrumbs;
-- practice utility information;
-- appointment / call / directions affordances where appropriate.
+Do not choose a shade because it looks close. Choose it because it fulfills a defined role and passes the contrast contract.
 
-### Global Business Actions
-Business destinations and visual presentation are separate concerns.
+## 2. Typography — Role Contract, Not Decoration
 
-Create globally owned business actions for recurring sitewide actions such as:
-- Call Now / phone destination;
-- Book Online / booking destination;
-- Visit / Directions;
-- Contact.
+Typography is a system contract.
 
-The business action owns its destination, canonical label where appropriate, and measurement identity. It must be editable once and reused throughout the site so a changed phone number or booking URL does not require page-by-page edits.
+Approved roles include:
+- Display Large / Medium / Small
+- H1–H6
+- Lead
+- Body
+- Small
+- Meta
+- Caption
+- Overline
+- Helper / Legal
 
-A global action may use different approved button presentations depending on context. For example, Book Online may be Primary on a light hero and Outline on a dark footer while retaining the same booking destination and `book_appointment` measurement identity.
+Every role must define:
+- font family;
+- responsive size;
+- weight;
+- line-height;
+- letter spacing where applicable;
+- semantic use;
+- minimum readable size;
+- allowed foreground behavior on each surface.
 
-## 5. Dental Component Library
-Representative reusable patterns may include:
-- standard hero;
-- service hero;
-- provider hero;
-- location hero;
-- service cards;
-- provider cards;
-- location cards;
-- treatment benefits;
-- procedure/process sections;
-- FAQs;
-- insurance/financing blocks;
-- technology sections;
-- review/testimonial blocks;
-- related services;
-- appointment/contact CTA sections.
+### Readability Floors
+Patient/customer-facing supporting text must not become visually insignificant.
 
-Components must define responsive and realistic content states before approval.
+Rules:
+- Body must remain at least 16px equivalent at mobile.
+- Small/Meta must normally remain at least 15px equivalent when carrying meaningful information.
+- Caption/Helper/Overline may reach 14px only when genuinely secondary and still readable.
+- Legal may be smaller only when legally/content-appropriate and still meets accessibility/reflow requirements.
+- Do not use reduced opacity as the primary method of creating hierarchy on dark/brand surfaces.
 
-### Component Hierarchy
-Use this ownership model:
+Type hierarchy comes first from size, weight, spacing, and role — not low contrast.
 
-`Globals → Primitives → Global Actions → Reusable Sections → Templates → Page Content`
+## 3. Surface + Contrast Contract
 
-- **Globals:** business data and design variables.
-- **Primitives:** buttons, icons, links, form controls, and other foundational UI elements.
-- **Global Actions:** Call, Book, Visit/Directions, Contact.
-- **Reusable Sections:** heroes, reviews, FAQs, service/provider/location cards, CTA bands, and similar patterns.
-- **Templates:** service, provider, location, and general page structures.
+A surface is more than a background class. It defines a deterministic foreground environment.
 
-### Button Component Contract
-Buttons are one reusable system with controlled dimensions, not separate page-specific widgets.
-
-#### Variant
-Approved visual hierarchy:
+Canonical surface families:
+- Light
+- Neutral
 - Primary
 - Secondary
-- Outline
-- Text
-
-#### Surface
-Approved background contexts:
-- Light
 - Dark
 
-Surface means the background context a component sits on. It is not an application-level light/dark mode.
+Each surface must map approved roles for:
+- heading foreground;
+- body foreground;
+- supporting/meta foreground;
+- link foreground;
+- icon foreground;
+- border/divider foreground;
+- form/control foreground;
+- button context.
 
-Prefer applying the surface context to the parent section/component so typography, links, icons, borders, forms, and buttons can respond consistently. Do not create one-off white/dark button fixes per page.
+Koda must never infer foreground colors.
 
-A third `Brand` surface may be introduced only when a real project proves that it requires behavior distinct from Dark. Do not add it speculatively.
+### Contrast Standard
+WCAG 2.2 AA is the minimum acceptance threshold:
+- normal text: 4.5:1 minimum;
+- large text: 3:1 minimum;
+- UI components and meaningful graphics: 3:1 minimum against adjacent colors where applicable.
 
-#### Icon Placement
-Approved icon states:
-- None
-- Left
-- Right
+UNA targets stronger practical contrast for body/supporting text, especially on Dark, Primary, and Secondary surfaces. Passing the mathematical floor is not enough if the role becomes hard to scan on a phone.
 
-The component owns icon size, alignment, and gap. Do not create local per-page icon spacing.
+### No Opacity Band-Aid
+Do not solve secondary text hierarchy with arbitrary `opacity:.6/.7/.8` on dark backgrounds. Use an approved contrasting shade from the color system.
 
-#### Button States
-Define and verify as applicable:
-- default;
-- hover;
-- focus-visible;
-- active;
-- disabled where a real interaction requires it.
+## 4. Global Classes — Shared Style Logic
 
-#### Class Responsibility
-Conceptual class ownership may follow:
-- `.btn` — shared button primitive;
-- `.btn--primary`;
-- `.btn--secondary`;
-- `.btn--outline`;
-- `.btn--text`;
-- `.btn--icon-left`;
-- `.btn--icon-right`;
-- `.surface--light` / `.surface--dark` on the owning parent context.
+Classes own reusable style behavior.
 
-Exact implementation should use Elementor V4's approved global variables/classes/component capabilities rather than introducing a second styling framework.
+Examples:
+- typography roles;
+- surfaces;
+- button bases + variants;
+- stack/cluster/grid patterns;
+- media ratios;
+- card bases + independent modifiers;
+- Header/Footer structural modifiers;
+- reusable spacing/layout compositions when they map cleanly to Elementor.
 
-#### Accessibility
-Use semantic interactive elements. Decorative icons must not create duplicate accessible names. Meaningful icon-only actions require an accessible name. Prefer native semantics; use ARIA only where native HTML cannot express the required behavior.
+Elementor local classes exist, but UNA does not use them as a page-level override strategy. Production styling belongs in approved Global Classes, Variables, Components, or native element settings that are part of a reusable recipe.
 
-## 6. Core Templates
-Build enough representative pages to prove the system:
-- Homepage
-- Services Index
-- One Service Detail
-- About
-- Provider Detail
-- Location Detail
-- Contact / Appointment
+### Class Rule
+Each class answers one reusable question.
 
-Do not build every service/provider/location page during Step 6.
+Good:
+`hero + hero--split + grid-40-60 + surface-dark + bleed-right`
 
-## 7. Functional Layer
-### Gravity Forms
-Core reusable forms:
-- Request Appointment
-- Contact Practice
-- Inquiry / New Patient Contact
+Bad:
+`hero-dark-right-bleed-home`
 
-Define routing, confirmation, validation, spam protection, privacy/consent, notification testing, and successful-submission measurement.
+## 5. Atomic Elements — Native Building Material
 
-### Trustindex
-Use as review data source. Keep visual composition controlled by the approved Elementor system.
+Prefer Atomic Elements for primitive structure and content:
+- Div Block
+- Flexbox
+- Grid where supported
+- Heading
+- Paragraph/Text
+- Image/Media
+- Button/Link
+- Icon
+- Atomic Forms/Loops/Grid only when the current production version and requirements support them reliably.
 
-### Yoast SEO
-Configure project-appropriate metadata, canonicals, breadcrumbs/schema support, indexation, and sitemap behavior.
+Atomic elements can nest. Keep the DOM as simple as the design permits. Do not add containers solely to imitate older Elementor structure.
 
-## 8. User Journey Architecture
-The page system should support:
-`Discover → Land → Explore → Intent → Convert`
+## 6. Components — Reusable Assemblies
 
-Primary actions:
-- Book
-- Call
-- Visit / Directions
-- Contact
+Components combine Atomic Elements and Global Classes into durable UI pieces.
 
-Representative journeys:
-- Google Search → Service Page → Reviews → Financing → Book
-- Location Page → Phone Click
-- Service Page → Provider → Book
-- Blog / informational page → Related Service → Appointment
+Examples:
+- Button
+- Icon Card
+- Service Card
+- Provider Card
+- Review Card
+- Rating
+- Avatar / Avatar Stack
+- Promo
+- Stat / Counter
+- Trust Mark
+- Day / Hours
+- Icon List
+- CTA Block
 
-## 9. Measurement Architecture
-Measurement is defined around business actions first, not analytics vendors.
+A component owns its internal structural relationship and allowed modifiers. It does not own page surface, page spacing, or arbitrary one-off content adjustments.
 
-### Google Search Console
-Search visibility, query, click, and landing-page discovery.
+## 7. Theme Builder
 
-### GA4 / gtag / GTM
-On-site landing, navigation, interaction, and conversion actions when connected.
+Global shell belongs in Elementor Theme Builder where appropriate:
+- Header
+- Footer
+- archive/single templates when justified
+- sitewide conditional structures
 
-### Call Tracking
-CallRail or another approved platform when available.
+Header and Footer consume the same Variables/Classes/Components as pages.
 
-### Standard action points
-- `book_appointment`
-- `phone_click`
-- `form_start`
-- `form_submit`
-- `directions_click`
-- `external_booking`
+## 8. Sections — Reusable Composition Recipes
 
-## 10. Tracking Fallback
-If analytics access is unavailable:
-- do not block the build;
-- keep action markup/selectors consistent;
-- document the event map;
-- mark tracking as connection pending;
-- activate and verify later when access is provided.
+Sections are assemblies, not giant custom widgets.
 
-Never describe tracking as live until tested.
+Ownership:
+`Variables → Classes → Atomic Elements → Components → Section Recipe`
 
-## 11. Technical SEO
-Establish:
-- permalink rules;
-- crawl/index rules;
-- sitemap behavior;
-- canonical behavior;
-- breadcrumb hierarchy;
-- heading semantics;
-- structured-data responsibility;
-- internal linking;
-- redirects where a replacement site requires them.
+Section families may include:
+- Hero
+- Services
+- Providers
+- Proof/Reviews
+- Process
+- Locations
+- FAQ
+- CTA
+- Content/Editorial
+- Forms/Conversion
 
-## 12. Performance
-Guardrails include:
-- optimized image dimensions and modern formats;
-- controlled font loading;
-- deliberate video/embed use;
-- review of third-party script cost;
-- Elementor asset discipline;
-- caching compatibility;
-- Core Web Vitals review.
+A Section recipe defines:
+- purpose;
+- source/content order;
+- allowed grid/layout compositions;
+- allowed components;
+- allowed modifiers;
+- surface compatibility;
+- mobile → tablet → desktop transformation;
+- semantic requirements.
 
-## 13. System QA + Stress Test
-Validate:
-- responsive behavior;
-- accessibility;
-- forms and functional flows;
-- SEO structure;
-- performance;
-- conversion paths;
-- measurement readiness;
-- cross-browser behavior;
-- long/short/missing content states;
-- button variants on Light and Dark surfaces;
-- icon-left/icon-right button behavior;
-- global business actions resolve to the correct single source of truth.
+No page-specific CSS is allowed to preserve a Section design.
 
-Representative templates must survive realistic stress before approval.
+## 9. Mobile-First Responsive Contract
 
-## Approval Gate
-Step 6 ends with an explicit internal approval of the page system.
+Design order:
+`Mobile → Tablet → Desktop`
 
-**Approved Page System → Content Population**
+The mobile composition must be complete using the same content instances.
 
-Content population is a later production activity, not proof that the system is ready.
+During UNA system validation:
+- no duplicate mobile/desktop content;
+- no `display:none` used to hide a responsive failure;
+- no separate mobile hero and desktop hero;
+- no reordered DOM that breaks meaning/accessibility.
+
+Desktop complexity is an enhancement of a valid mobile source order.
+
+## 10. Native Elementor Controls Are Composition Tools
+
+Approved native controls may include:
+- flex direction/alignment/order/wrap;
+- Grid definitions;
+- width/max-width/min-height;
+- gap/padding/margin using approved values;
+- relative/absolute positioning;
+- z-index;
+- overflow;
+- responsive property values;
+- background/media controls;
+- states and interactions.
+
+**Positioning creates intentional composition. It never repairs broken structure.**
+
+## 11. No Band-Aid / No Local Override / No Custom CSS
+
+Hard rule for UNA core and Koda-compatible recipes:
+
+Do not use:
+- page-specific CSS;
+- inline CSS declarations;
+- custom CSS selectors to repair an individual page;
+- local class styling as a one-off escape hatch;
+- `nth-child`/DOM-position tricks for variants;
+- arbitrary values outside the approved system;
+- duplicate components created to avoid fixing the real owner;
+- custom JS for visual behavior Elementor can own natively.
+
+Resolution order when a design cannot be built:
+1. Check native Elementor V4 capability.
+2. Check existing Variable.
+3. Check existing Global Class.
+4. Check existing Component.
+5. Check existing Section recipe/modifier.
+6. If the requirement is demonstrably reusable, improve the correct upstream owner.
+7. Otherwise change the design.
+
+## 12. Koda Deterministic Mapping Contract
+
+Koda is not an AI designer.
+
+Koda must never decide:
+- which foreground color has enough contrast;
+- which typography role is appropriate;
+- whether a section needs a different grid;
+- whether a button should become primary/outline;
+- whether mobile should hide something;
+- which Elementor property should emulate a visual effect.
+
+UNA must encode those decisions before Koda runs.
+
+Required conceptual pipeline:
+
+`Content JSON → Page Recipe ID → Section Recipe IDs → Component Recipe IDs → Verified Elementor Element Types + Global Class IDs + Variable IDs + Native Settings → Elementor JSON`
+
+## 13. Machine-Readable UNA Manifest
+
+UNA needs a canonical machine layer, but it must not invent Elementor's internal schema.
+
+Required UNA-side manifests:
+- `variables.json`
+- `typography.json`
+- `surfaces.json`
+- `classes.json`
+- `components.json`
+- `sections.json`
+- `responsive.json`
+- `recipes.json`
+- `elementor-map.json`
+- schema/version metadata
+
+These files describe UNA identities and mappings.
+
+### Verified Elementor JSON Rule
+Actual Elementor JSON keys, element types, class references, variable references, component references, and export structures must be captured from real Elementor V4 Atomic exports and official data structures before Koda production mapping is implemented.
+
+Never fabricate JSON because it seems plausible.
+
+## 14. Theme-Kit Generator Scope
+
+UNA can evolve into an Elementor-specific Atomic theme-kit generator.
+
+The generated/validated kit may include:
+- Variables;
+- Global Classes;
+- Components;
+- Header/Footer Theme Builder templates;
+- approved atomic section/page recipes;
+- responsive mappings;
+- contrast/typography contracts;
+- content placeholders/mapping identities;
+- Koda recipe metadata.
+
+The generator should output only structures verified to import correctly into the targeted Elementor V4 version.
+
+## 15. QA Gates
+
+Before freezing any layer, validate:
+- contrast mathematically and visually;
+- typography readability at mobile sizes;
+- responsive transformation;
+- semantic source order;
+- keyboard/focus behavior;
+- touch targets;
+- long/short content states;
+- surface compatibility;
+- class ownership;
+- absence of local/custom CSS escape hatches;
+- 1:1 reproducibility with Elementor V4 native controls.
+
+## Completion Rule
+
+UNA is not complete because the prototype looks good.
+
+A layer is complete when:
+1. it is visually approved;
+2. it is accessible;
+3. it maps cleanly to Elementor V4 Atomic architecture;
+4. it has no local/custom repair dependency;
+5. its ownership is clear;
+6. its Koda identity can be deterministic;
+7. its real Elementor export/mapping can be verified.
