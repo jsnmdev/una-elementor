@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Base — UNA-Elementor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="base.css">
+  <style>
+    .base-shell{width:min(100% - 40px,var(--una-width-content));margin-inline:auto;padding-block:var(--una-space-64-fluid) var(--una-space-120-fluid)}
+    .base-stack{display:grid;gap:var(--una-space-24-fixed)}
+    .base-section{padding-block:var(--una-space-48-fluid);border-top:1px solid var(--una-neutral-lighter)}
+    .base-section:first-of-type{border-top:0}.base-section h2{margin-bottom:var(--una-space-24-fixed)}
+    .base-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--una-space-24-fixed)}
+    .base-card{padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16);background:var(--una-white)}
+    .base-dark{background:var(--una-neutral-darkest);color:var(--una-white)}
+    .base-muted{color:var(--una-neutral-dark);font-size:14px}.base-controls{display:grid;gap:var(--una-space-16-fixed);max-width:560px}
+    .base-controls label{font-weight:700}.base-controls input,.base-controls textarea,.base-controls select{width:100%;padding:12px 14px;border:1px solid var(--una-neutral-light);border-radius:var(--una-radius-8);background:var(--una-white)}
+    .base-raw-button{padding:12px 16px;border:1px solid var(--una-neutral-dark);background:var(--una-white);border-radius:var(--una-radius-8)}
+    .base-media{max-width:560px}.base-media img{width:100%}.base-reading{max-width:var(--una-width-read)}
+    @media(max-width:700px){.base-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main" class="base-shell">
+    <header class="base-stack" style="margin-bottom:var(--una-space-64-fluid)">
+      <a href="variables.html">← Variables</a>
+      <p class="base-muted">UNA-Elementor Foundation / Base</p>
+      <h1>Native defaults before classes.</h1>
+      <p class="base-reading">This page validates the Base layer only. No section, surface, button, grid, media-ratio, or content-primitive classes are required to make the native HTML predictable and readable.</p>
+    </header>
+
+    <section class="base-section">
+      <h2>Headings + Body</h2>
+      <div class="base-stack">
+        <h1>Heading 1 — Comprehensive Dental Care</h1>
+        <h2>Heading 2 — Treatment planned around you</h2>
+        <h3>Heading 3 — Restorative Dentistry</h3>
+        <h4>Heading 4 — What to expect</h4>
+        <h5>Heading 5 — Appointment details</h5>
+        <h6>Heading 6 — Supporting heading</h6>
+        <p class="base-reading">Body copy uses Font Text and the Body type scale variable. Paragraph and heading margins are zero by default so spacing is owned by Elementor layout settings and approved classes rather than browser margins.</p>
+      </div>
+    </section>
+
+    <section class="base-section">
+      <h2>Contextual Links</h2>
+      <div class="base-grid">
+        <div class="base-card base-stack"><p>On a light context, <a href="#">this is a native inline link</a>. It inherits the surrounding color.</p></div>
+        <div class="base-card base-dark base-stack"><p>On a dark context, <a href="#">the same native link</a> inherits the dark-surface text color.</p></div>
+      </div>
+    </section>
+
+    <section class="base-section">
+      <h2>Semantic Lists</h2>
+      <div class="base-grid">
+        <div class="base-card"><ul><li>Comprehensive exam</li><li>Digital imaging when needed</li><li>Treatment discussion</li></ul></div>
+        <div class="base-card"><ol><li>Book the visit</li><li>Meet the care team</li><li>Leave with a clear plan</li></ol></div>
+      </div>
+    </section>
+
+    <section class="base-section">
+      <h2>Native Media</h2>
+      <div class="base-media"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80" alt="Dental care environment"></div>
+      <p class="base-muted" style="margin-top:var(--una-space-16-fixed)">Base only makes media responsive. Aspect ratio and <code>cover</code> belong to Media classes later in the Foundation.</p>
+    </section>
+
+    <section class="base-section">
+      <h2>Raw Controls</h2>
+      <div class="base-controls">
+        <label for="base-name">Name</label><input id="base-name" type="text" placeholder="Your name">
+        <label for="base-select">Reason for visit</label><select id="base-select"><option>Choose one</option><option>New patient exam</option><option>Dental concern</option></select>
+        <label for="base-message">Message</label><textarea id="base-message" rows="4"></textarea>
+        <button class="base-raw-button" type="button">Raw button</button>
+      </div>
+      <p class="base-muted" style="margin-top:var(--una-space-16-fixed)">These are intentionally plain. Button design comes from Button classes; Gravity Forms presentation comes from the scoped <code>.gf-form</code> system.</p>
+    </section>
+
+    <section class="base-section">
+      <h2>Focus + Reduced Motion</h2>
+      <p class="base-reading">Keyboard focus is globally visible and cannot be removed by components. Reduced-motion preferences disable nonessential motion at the Base layer.</p>
+      <p style="margin-top:var(--una-space-24-fixed)"><a href="#focus-test">Tab to this focus test link</a></p>
+    </section>
+  </main>
+</body>
+</html>
