@@ -1,5 +1,5 @@
 /* UNA-Elementor Classes / Buttons — QA mirror of Elementor Global Classes. */
-.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:var(--una-space-8-fixed);padding:13px var(--una-space-24-fixed);border:1px solid transparent;border-radius:var(--una-radius-full);font-family:var(--una-font-text);font-size:16px;font-weight:700;line-height:1.15;text-decoration:none;cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,transform 160ms ease}
+.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:var(--una-space-8-fixed);padding:13px var(--una-space-24-fixed);border:1px solid transparent;border-radius:var(--una-radius-full);font-family:var(--una-font-text);font-size:16px;font-weight:700;line-height:1.15;text-decoration:none;cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,transform 160ms ease}
 .button:hover{transform:translateY(-1px)}
 .button-primary.button-on-light{background:var(--una-primary-darkest);color:var(--una-white)}
 .button-primary.button-on-light:hover{background:var(--una-primary-dark)}
