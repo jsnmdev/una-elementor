@@ -6,15 +6,12 @@
 .header-demo{margin-top:var(--una-space-40-fluid);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16);overflow:hidden}
 .site-header{position:relative;--header-gutter:20px;--header-max-width:100%}
 .site-header__inner{width:calc(100% - (var(--header-gutter)*2));max-width:var(--header-max-width);margin-inline:auto;min-height:76px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:var(--una-space-24-fixed)}
-/* Width is independent from surface, position and composition. */
 .site-header--content{--header-max-width:var(--una-width-content)}
 .site-header--wide{--header-max-width:1600px}
 .site-header--full{--header-max-width:none}
-/* Position is independent from width and color context. */
 .site-header--static{position:relative}
 .site-header--sticky{position:sticky;top:0;z-index:20}
 .site-header--absolute{position:absolute;top:0;left:0;right:0;z-index:20;background:transparent}
-/* Transparent context describes foreground contrast, not a background color. */
 .site-header--transparent-light{background:transparent;color:var(--una-neutral-darkest)}
 .site-header--transparent-dark{background:transparent;color:var(--una-white)}
 .site-header--transparent-dark .site-header__brand,.site-header--transparent-dark .site-header__nav a,.site-header--transparent-dark .site-header__nav button{color:inherit}
@@ -27,11 +24,16 @@
 .header-utility,.header-announcement{min-height:40px;display:flex;align-items:center}
 .header-utility__inner,.header-announcement__inner{width:calc(100% - 40px);max-width:var(--una-width-content);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:var(--una-space-16-fixed);font-size:14px}
 .header-utility__group{display:flex;flex-wrap:wrap;align-items:center;gap:var(--una-space-16-fixed)}
-/* Dropdown/mega-menu behavior remains provisional and will be handled in its own pass. */
 .header-dropdown{position:relative}.header-dropdown__menu{position:absolute;top:100%;left:0;z-index:4;min-width:240px;padding:var(--una-space-16-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16);background:var(--una-white);box-shadow:0 14px 36px rgba(0,0,0,.08);display:grid;gap:var(--una-space-8-fixed)}
 .header-dropdown__menu[hidden]{display:none}.header-dropdown__menu a{justify-content:flex-start}
 .header-mega{position:static}.header-mega .header-dropdown__menu{left:20px;right:20px;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--una-space-24-fixed)}
 .header-menu-toggle{display:none;min-width:44px;min-height:44px;border:1px solid var(--una-neutral-light);border-radius:var(--una-radius-8);background:transparent;color:inherit;font-weight:700}
 .header-mobile-panel{display:none}
-@media(max-width:900px){.site-header__inner{grid-template-columns:minmax(0,1fr) auto}.site-header__nav,.site-header__actions{display:none}.site-header--centered .site-header__inner{grid-template-columns:minmax(0,1fr) auto}.site-header--centered .site-header__brand{justify-self:start}.header-menu-toggle{display:inline-grid;place-items:center}.header-mobile-panel{border-top:1px solid currentColor}.header-mobile-panel[data-open="true"]{display:block}.header-mobile-panel__inner{width:calc(100% - 40px);margin-inline:auto;padding-block:var(--una-space-16-fixed) var(--una-space-24-fixed);display:grid;gap:var(--una-space-12-fixed)}.header-mobile-panel a,.header-mobile-panel button{min-height:48px;display:flex;align-items:center;width:100%;border:0;background:transparent;color:inherit;text-decoration:none;font-weight:700;text-align:left}.header-mobile-panel .button{justify-content:center}.header-utility__inner,.header-announcement__inner{width:calc(100% - 40px)}.header-utility__inner{align-items:flex-start;flex-direction:column;padding-block:10px}.header-announcement__inner{justify-content:center;text-align:center}}
-@media(max-width:600px){.header-lab{width:min(100% - 32px,var(--una-width-content));padding-top:var(--una-space-40-fluid)}.site-header__inner{min-height:68px}.site-header__brand{font-size:var(--una-h5)}}
+/* Mobile Action Bar: global mobile conversion strip, independent from Header surface/layout. */
+.mobile-actions{display:none}
+.mobile-actions__inner{display:grid;grid-template-columns:repeat(var(--mobile-actions-count,2),minmax(0,1fr));gap:1px;background:var(--una-neutral-light)}
+.mobile-actions a{min-height:56px;display:flex;align-items:center;justify-content:center;gap:var(--una-space-8-fixed);padding:var(--una-space-8-fixed) var(--una-space-12-fixed);background:var(--una-white);color:var(--una-neutral-darkest);text-decoration:none;font-weight:700;text-align:center}
+.mobile-actions--3{--mobile-actions-count:3}
+.mobile-actions .button-icon{flex:0 0 auto}
+@media(max-width:900px){.site-header__inner{grid-template-columns:minmax(0,1fr) auto}.site-header__nav,.site-header__actions{display:none}.site-header--centered .site-header__inner{grid-template-columns:minmax(0,1fr) auto}.site-header--centered .site-header__brand{justify-self:start}.header-menu-toggle{display:inline-grid;place-items:center}.header-mobile-panel{border-top:1px solid currentColor}.header-mobile-panel[data-open="true"]{display:block}.header-mobile-panel__inner{width:calc(100% - 40px);margin-inline:auto;padding-block:var(--una-space-16-fixed) var(--una-space-24-fixed);display:grid;gap:var(--una-space-12-fixed)}.header-mobile-panel a,.header-mobile-panel button{min-height:48px;display:flex;align-items:center;width:100%;border:0;background:transparent;color:inherit;text-decoration:none;font-weight:700;text-align:left}.header-mobile-panel .button{justify-content:center}.header-utility__inner,.header-announcement__inner{width:calc(100% - 40px)}.header-utility__inner{align-items:flex-start;flex-direction:column;padding-block:10px}.header-announcement__inner{justify-content:center;text-align:center}.mobile-actions{display:block}}
+@media(max-width:600px){.header-lab{width:min(100% - 32px,var(--una-width-content));padding-top:var(--una-space-40-fluid)}.site-header__inner{min-height:68px}.site-header__brand{font-size:var(--una-h5)}.mobile-actions a{font-size:14px}}
