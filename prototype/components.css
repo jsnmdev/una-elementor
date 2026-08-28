@@ -1,26 +1,35 @@
-/* UNA-Elementor Components V1 — component-specific structure only.
-   Foundation owns layout utilities, surfaces, typography roles, buttons, media ratios, focus and variables. */
+/* UNA-Elementor Components V1.
+   PRODUCTION: named component + modifier rules only.
+   QA SHELL: .components-* and .qa-* rules exist only for this static review harness. */
 .components-shell{width:min(100% - (var(--una-gutter-content)*2),var(--una-width-content));margin-inline:auto;padding-block:var(--una-space-64-fluid) var(--una-space-120-fluid)}
 .components-hero{max-width:var(--una-width-read);margin-bottom:var(--una-space-64-fluid)}
 .components-nav{display:flex;flex-wrap:wrap;gap:var(--una-space-12-fixed);margin-top:var(--una-space-24-fixed)}
-.components-nav a{min-height:44px;display:inline-flex;align-items:center;padding-inline:14px;border:1px solid var(--una-neutral-light);border-radius:var(--una-radius-full);text-decoration:none;font-size:14px;font-weight:700;background:var(--una-white)}
+.components-nav a{min-height:44px;display:inline-flex;align-items:center;padding-inline:var(--una-space-16-fixed);border:1px solid var(--una-neutral-light);border-radius:var(--una-radius-full);text-decoration:none;font-size:14px;font-weight:700;background:var(--una-white)}
 .component-section{padding-block:var(--una-space-56-fluid);border-top:1px solid var(--una-neutral-lighter)}
 .component-section-head{max-width:var(--una-width-read);margin-bottom:var(--una-space-32-fixed)}
+.qa-group-space{margin-top:var(--una-space-48-fluid)}
+
+/* Base Card: shared structural shell only. Surface remains Foundation-owned. */
 .component-card{border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-24);overflow:hidden}
 .component-card-body{padding:var(--una-space-24-fixed)}
-.component-card-icon{width:48px;height:48px;display:grid;place-items:center;color:var(--una-primary-darkest)}
-.component-card-icon svg{width:100%;height:100%;display:block;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* Media position modifiers. Foundation still owns normal ratios + cover. */
 .component-card--media-left,.component-card--media-right{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:stretch}
 .component-card--media-right{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
 .component-card--media-left>img,.component-card--media-right>img{height:100%;aspect-ratio:auto;min-height:100%;object-fit:cover}
 .component-card--media-right>img{order:2}.component-card--media-right>.component-card-body{order:1}
-/* Service Card icon compositions: stacked, icon left, icon right. */
-#service-card .grid-3>article:nth-child(2) .component-card-body,#service-card .grid-3>article:nth-child(3) .component-card-body{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:var(--una-space-16-fixed);row-gap:var(--una-space-12-fixed);align-items:start}
-#service-card .grid-3>article:nth-child(2) .component-card-icon{grid-column:1;grid-row:1/span 5}
-#service-card .grid-3>article:nth-child(2) .component-card-body>:not(.component-card-icon){grid-column:2}
-#service-card .grid-3>article:nth-child(3) .component-card-body{grid-template-columns:minmax(0,1fr) 56px}
-#service-card .grid-3>article:nth-child(3) .component-card-icon{grid-column:2;grid-row:1/span 5;justify-self:end}
-#service-card .grid-3>article:nth-child(3) .component-card-body>:not(.component-card-icon){grid-column:1}
+.component-card--portrait>img{--component-mobile-ratio:1/1}
+
+/* Icon Card / icon-slot modifiers: explicit, never DOM-position based. */
+.component-card-icon{width:48px;height:48px;display:grid;place-items:center;color:var(--una-primary-darkest)}
+.component-card-icon svg{width:100%;height:100%;display:block;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.component-card--icon-left .component-card-body,.component-card--icon-right .component-card-body{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:var(--una-space-16-fixed);row-gap:var(--una-space-12-fixed);align-items:start}
+.component-card--icon-left .component-card-icon{grid-column:1;grid-row:1/span 5}
+.component-card--icon-left .component-card-body>:not(.component-card-icon){grid-column:2}
+.component-card--icon-right .component-card-body{grid-template-columns:minmax(0,1fr) 56px}
+.component-card--icon-right .component-card-icon{grid-column:2;grid-row:1/span 5;justify-self:end}
+.component-card--icon-right .component-card-body>:not(.component-card-icon){grid-column:1}
+
 .component-review{margin:0;padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-24)}
 .component-stars{letter-spacing:.12em;color:var(--una-secondary-dark)}
 .component-faq details{border-top:1px solid var(--una-neutral-lighter);padding-block:var(--una-space-16-fixed)}
@@ -46,8 +55,10 @@
 .tabs-list button[aria-selected="true"]{border-bottom-color:var(--una-primary-darkest);color:var(--una-primary-darkest)}
 .tabs-panel{padding:var(--una-space-24-fixed);border:1px solid var(--una-neutral-lighter);border-radius:var(--una-radius-16)}
 .tabs-panel[hidden]{display:none}
+
+/* QA-only labels/rules. */
 .component-status{display:inline-flex;width:max-content;padding:5px 9px;border-radius:var(--una-radius-full);background:var(--una-secondary-lightest);color:var(--una-secondary-darkest);font-size:12px;font-weight:700}
 .component-rule{padding:var(--una-space-24-fixed);border:1px dashed var(--una-neutral-light);border-radius:var(--una-radius-16);background:var(--una-neutral-lightest)}
 @media(max-width:800px){.components-shell{width:min(100% - 32px,var(--una-width-content))}}
-@media(max-width:600px){.component-card--media-left,.component-card--media-right{grid-template-columns:1fr}.component-card--media-left>img,.component-card--media-right>img{height:auto;aspect-ratio:4/3;min-height:0;order:1}.component-card--media-left>.component-card-body,.component-card--media-right>.component-card-body{order:2}#provider-card .component-card--media-left>img,#provider-card .component-card--media-right>img{aspect-ratio:1/1}#service-card .grid-3>article:nth-child(2) .component-card-body,#service-card .grid-3>article:nth-child(3) .component-card-body{display:grid;grid-template-columns:1fr;gap:var(--una-space-16-fixed)}#service-card .grid-3>article:nth-child(2) .component-card-icon,#service-card .grid-3>article:nth-child(3) .component-card-icon,#service-card .grid-3>article:nth-child(2) .component-card-body>:not(.component-card-icon),#service-card .grid-3>article:nth-child(3) .component-card-body>:not(.component-card-icon){grid-column:1;grid-row:auto;justify-self:start}}
+@media(max-width:600px){.component-card--media-left,.component-card--media-right{grid-template-columns:1fr}.component-card--media-left>img,.component-card--media-right>img{height:auto;aspect-ratio:var(--component-mobile-ratio,4/3);min-height:0;order:1}.component-card--media-left>.component-card-body,.component-card--media-right>.component-card-body{order:2}.component-card--icon-left .component-card-body,.component-card--icon-right .component-card-body{grid-template-columns:1fr;gap:var(--una-space-16-fixed)}.component-card--icon-left .component-card-icon,.component-card--icon-right .component-card-icon,.component-card--icon-left .component-card-body>:not(.component-card-icon),.component-card--icon-right .component-card-body>:not(.component-card-icon){grid-column:1;grid-row:auto;justify-self:start}}
 @media(max-width:520px){.day-hours{grid-template-columns:1fr auto;column-gap:var(--una-space-16-fixed)}}
