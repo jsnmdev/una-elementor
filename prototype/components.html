@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Components — UNA-Elementor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main" class="components-shell">
+    <header class="components-stack components-hero">
+      <a href="base.html">← Base</a>
+      <p class="components-kicker">UNA-Elementor / Components Lab</p>
+      <h1>Reusable parts before full page patterns.</h1>
+      <p>This page is the dedicated visual review space for components. It is intentionally separate from the full dental reference pages so we can approve reusable parts one at a time before multiplying them across templates.</p>
+      <span class="component-status">IN DESIGN</span>
+      <nav class="components-nav" aria-label="Components page sections">
+        <a href="#service-card">Service Card</a>
+        <a href="#provider-card">Provider Card</a>
+        <a href="#review-card">Review Card</a>
+        <a href="#faq">FAQ</a>
+        <a href="#cta">CTA</a>
+        <a href="#location">Location</a>
+      </nav>
+    </header>
+
+    <section class="component-section" id="service-card">
+      <div class="component-section-head">
+        <p class="component-label">Content Component</p>
+        <h2>Service Card</h2>
+        <p>Used in service grids and related-treatment areas. Content and image can change; spacing, hierarchy, and interaction stay consistent.</p>
+      </div>
+      <div class="component-grid">
+        <article class="component-demo">
+          <img class="component-media" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=80" alt="Dental care consultation">
+          <div class="component-demo-body">
+            <p class="component-label">Restorative Dentistry</p>
+            <h3>Dental Implants</h3>
+            <p>Replace missing teeth with a stable treatment plan designed around long-term function and comfort.</p>
+            <a class="component-link" href="#">Explore treatment →</a>
+          </div>
+        </article>
+        <article class="component-demo">
+          <div class="component-demo-body">
+            <p class="component-label">Preventive Care</p>
+            <h3>Dental Checkups</h3>
+            <p>This state tests the same component without an image. The structure should remain usable without requiring a one-off repair.</p>
+            <a class="component-link" href="#">Learn more →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="component-section" id="provider-card">
+      <div class="component-section-head">
+        <p class="component-label">Content Component</p>
+        <h2>Provider Card</h2>
+        <p>Provider identity, role, short biography, and a clear path to the provider detail page.</p>
+      </div>
+      <div class="component-grid">
+        <article class="component-demo">
+          <img class="component-avatar" src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=900&q=80" alt="Dentist portrait">
+          <div class="component-demo-body">
+            <p class="component-label">General Dentist</p>
+            <h3>Dr. Avery Morgan</h3>
+            <p>Focused on prevention, restorative care, and clear treatment planning for adults and families.</p>
+            <div class="component-actions"><a class="component-button" href="#">Meet Dr. Morgan</a></div>
+          </div>
+        </article>
+        <article class="component-demo">
+          <img class="component-avatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=80" alt="Dentist portrait">
+          <div class="component-demo-body">
+            <p class="component-label">Cosmetic Dentist</p>
+            <h3>Dr. Taylor Reyes</h3>
+            <p>This version tests a longer provider role and slightly longer supporting copy without changing the component structure.</p>
+            <div class="component-actions"><a class="component-button" href="#">Meet Dr. Reyes</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="component-section" id="review-card">
+      <div class="component-section-head">
+        <p class="component-label">Trust Component</p>
+        <h2>Review Card</h2>
+        <p>Review data can come from Trustindex or another source, but the component presentation remains owned by UNA-Elementor.</p>
+      </div>
+      <div class="component-grid">
+        <blockquote class="component-quote">
+          <div class="component-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“They explained everything clearly and I never felt rushed into treatment.”</p>
+          <footer class="component-meta">— Morgan P.</footer>
+        </blockquote>
+        <blockquote class="component-quote">
+          <div class="component-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“The appointment was easy to schedule, the team was welcoming, and the treatment plan finally made sense to me.”</p>
+          <footer class="component-meta">— Jamie T.</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="component-section" id="faq">
+      <div class="component-section-head">
+        <p class="component-label">Interactive Component</p>
+        <h2>FAQ</h2>
+        <p>Native disclosure behavior first. Later Elementor implementation should preserve keyboard and semantic behavior.</p>
+      </div>
+      <div class="component-faq">
+        <details>
+          <summary>Do you accept dental insurance?</summary>
+          <p>Yes. The office can help verify benefits and explain estimated patient responsibility before treatment.</p>
+        </details>
+        <details>
+          <summary>What should I expect at my first visit?</summary>
+          <p>Your first appointment typically includes a conversation about your goals, an exam, imaging when needed, and a clear treatment discussion.</p>
+        </details>
+        <details>
+          <summary>What if I am nervous about dental treatment?</summary>
+          <p>Tell the team before treatment begins. The visit can be paced around your comfort and questions.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="component-section" id="cta">
+      <div class="component-section-head">
+        <p class="component-label">Conversion Component</p>
+        <h2>CTA Block</h2>
+        <p>A reusable action block should support Book, Call, Visit, or Contact without inventing a new visual treatment for every page.</p>
+      </div>
+      <div class="component-cta">
+        <p class="component-label" style="color:inherit">Ready when you are</p>
+        <h3>Start with a clear next step.</h3>
+        <p>Book online or call the team to find the right appointment.</p>
+        <div class="component-actions">
+          <a class="component-button" style="background:var(--una-white);color:var(--una-primary-darkest);border-color:var(--una-white)" href="#">Book Online</a>
+          <a class="component-link" style="color:inherit" href="tel:+15555550100">Call (555) 555-0100</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="component-section" id="location">
+      <div class="component-section-head">
+        <p class="component-label">Business Detail Component</p>
+        <h2>Location / Contact Block</h2>
+        <p>Shared business details should eventually come from one structured source rather than being duplicated across pages.</p>
+      </div>
+      <div class="component-demo component-location">
+        <div class="component-demo-body">
+          <p class="component-label">UNA Dental</p>
+          <h3>Your City Office</h3>
+          <p>100 Main Street<br>Your City, MI 49000</p>
+          <p class="component-meta">Mon–Thu 8:00 AM–5:00 PM<br>Fri 8:00 AM–2:00 PM</p>
+          <div class="component-actions">
+            <a class="component-button" href="#">Get Directions</a>
+            <a class="component-link" href="tel:+15555550100">Call Office</a>
+          </div>
+        </div>
+        <div class="component-map" aria-label="Map placeholder">Map / location media</div>
+      </div>
+    </section>
+
+    <section class="component-section">
+      <div class="component-rule components-stack">
+        <p class="component-label">Component Rule</p>
+        <h2>When does something become a component?</h2>
+        <p>If the same structure or content responsibility repeats and should update consistently, make it a component. One-off compositions stay built from Foundation classes and local content.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
