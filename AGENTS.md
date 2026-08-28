@@ -43,13 +43,25 @@ Use legacy widgets only when the production requirement is not yet available rel
 
 Do not recreate Elementor with a parallel CSS framework.
 
+## Local Class Clarification
+Elementor V4 gives every Atomic Element a local class. The existence of that local class is part of Elementor's architecture and is not itself a violation.
+
+UNA's rule is:
+- do not author ad-hoc page-specific visual fixes in the local class;
+- reusable visual styling belongs in approved Global Classes/Variables/Components;
+- native element settings that are intentionally part of a canonical recipe may be stored by Elementor in element/local style data and are allowed only when that setting is structural, deterministic, documented in the recipe, and reproducible by Koda.
+
+Example: an approved Hero recipe may explicitly set one Atomic container to `position:absolute`, a specific approved inset, z-index, or responsive order using Elementor-native controls. That is recipe data, not a human one-off override.
+
+If a local setting exists only because a designer had to make one page look right, it fails UNA.
+
 ## Hard No Band-Aid Rule
 Forbidden in UNA core and Koda-compatible builds:
 - page-specific CSS;
 - custom CSS used to repair one composition;
-- inline style declarations;
-- local class styling as a page-level override strategy;
-- arbitrary values outside approved Variables/Classes;
+- inline style declarations outside Elementor's verified native data model;
+- ad-hoc local class styling as a page-level override strategy;
+- arbitrary values outside approved Variables/Classes/recipe settings;
 - `nth-child` or DOM-position tricks for variants;
 - duplicate mobile/desktop content used to fix responsive layout;
 - `display:none` used to hide responsive failures during system validation;
@@ -202,7 +214,7 @@ A layer cannot be approved until it passes:
 - typography readability;
 - contrast QA;
 - ownership audit;
-- no-local-override audit;
+- no-ad-hoc-local-override audit;
 - no-custom-CSS audit;
 - Elementor-native reproducibility review;
 - deterministic Koda identity review where applicable.
