@@ -1,0 +1,112 @@
+/* UNA-Elementor Base Layer
+   Purpose: predictable native element defaults before any Global Class is applied.
+   Production equivalent: configure these values in Elementor Site Settings / Theme Style where Elementor owns them.
+*/
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--una-font-text);
+  font-size: var(--una-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--una-neutral-darker);
+  background: var(--una-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6, p,
+figure, blockquote {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--una-font-heading);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: normal;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--una-h1); }
+h2 { font-size: var(--una-h2); }
+h3 { font-size: var(--una-h3); }
+h4 { font-size: var(--una-h4); }
+h5 { font-size: var(--una-h5); }
+h6 { font-size: var(--una-h6); }
+
+p { text-wrap: pretty; }
+
+/* Links inherit context by default. Component / content classes own intentional styling. */
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+/* Preserve semantic list behavior. Layout classes/components may change spacing, never semantics. */
+ul, ol {
+  margin: 0;
+  padding-inline-start: 1.25em;
+}
+
+li + li { margin-top: var(--una-space-8-fixed); }
+
+/* Media base: responsive and structurally safe. Ratio + cover belong to approved media classes. */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+img, video { height: auto; }
+
+/* Native controls inherit the body typeface. Button visual design belongs to Button classes. */
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button { cursor: pointer; }
+
+input, textarea, select { max-width: 100%; }
+textarea { resize: vertical; }
+
+/* Accessible global focus. Components may enhance but may not remove it. */
+:focus-visible {
+  outline: 3px solid var(--una-primary-base);
+  outline-offset: 3px;
+}
+
+/* Screen-reader / keyboard escape hatch used by reference builds. */
+.skip-link {
+  position: fixed;
+  inset-inline-start: var(--una-space-16-fixed);
+  inset-block-start: var(--una-space-16-fixed);
+  z-index: 9999;
+  transform: translateY(-180%);
+  padding: var(--una-space-12-fixed) var(--una-space-16-fixed);
+  border-radius: var(--una-radius-8);
+  background: var(--una-white);
+  color: var(--una-neutral-darkest);
+}
+
+.skip-link:focus { transform: none; }
+
+/* Reduced motion is a base accessibility responsibility. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
