@@ -3,10 +3,12 @@
 .forms-head{display:grid;gap:var(--una-space-16-fixed);max-width:var(--una-width-read);margin-bottom:var(--una-space-48-fluid)}
 .forms-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--una-space-32-fixed);align-items:start}
 .gf-form{display:grid;gap:var(--una-space-24-fixed);font-family:var(--una-font-text);color:var(--una-neutral-darker)}
-.gf-form .gform_fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--una-space-20-fixed,var(--una-space-24-fixed))}
+.gf-form .gform_fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--una-space-24-fixed)}
 .gf-form .gfield{display:grid;gap:var(--una-space-8-fixed)}
 .gf-form .gfield--width-full{grid-column:1/-1}
 .gf-form label,.gf-form legend{font-weight:700;color:var(--una-neutral-darkest)}
+.gf-form fieldset{margin:0;padding:0;border:0;min-width:0}
+.gf-form fieldset legend{margin-bottom:var(--una-space-12-fixed)}
 .gf-form .gfield_required{color:#9a2f2f;margin-left:4px}
 .gf-form input:not([type=checkbox]):not([type=radio]),.gf-form select,.gf-form textarea{width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--una-neutral-light);border-radius:var(--una-radius-8);background:var(--una-white);color:var(--una-neutral-darkest);font:inherit}
 .gf-form textarea{min-height:140px;resize:vertical}
@@ -14,6 +16,11 @@
 .gf-form .gfield_description{font-size:13px;line-height:1.5;color:var(--una-neutral-dark)}
 .gf-form .gfield_error input,.gf-form .gfield_error select,.gf-form .gfield_error textarea{border-color:#a33a3a}
 .gf-form .validation_message{font-size:13px;font-weight:700;color:#8a2525}
+.gf-form .gfield_checkbox,.gf-form .gfield_radio{display:grid;gap:var(--una-space-8-fixed);list-style:none;margin:0;padding:0}
+.gf-form .gchoice{display:flex;align-items:flex-start;gap:var(--una-space-12-fixed);min-height:44px;padding:8px 0}
+.gf-form .gchoice input[type=checkbox],.gf-form .gchoice input[type=radio]{width:20px;height:20px;min-width:20px;margin:2px 0 0;accent-color:var(--una-primary-base)}
+.gf-form .gchoice label{font-weight:400;line-height:1.45;cursor:pointer}
+.gf-form .gchoice input[type=checkbox]:focus-visible,.gf-form .gchoice input[type=radio]:focus-visible{outline:3px solid var(--una-primary-light);outline-offset:3px}
 .gf-form .gform_footer{display:flex;align-items:center;gap:var(--una-space-16-fixed)}
 .gf-form .gform_button{min-height:44px;padding:13px var(--una-space-24-fixed);border:1px solid transparent;border-radius:var(--una-radius-full);background:var(--una-primary-darkest);color:var(--una-white);font:700 16px/1.15 var(--una-font-text);text-align:center;cursor:pointer}
 .gf-form .gform_button:hover{background:var(--una-primary-dark)}
