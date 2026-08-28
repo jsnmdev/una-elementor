@@ -3,6 +3,8 @@
 ## Mission
 Use the existing sitemap as a real-world test bench for UNA. Build visually diverse, modern, spacious pages from the existing Lego system, then use the results to Keep / Improve / Merge / Eliminate section patterns before Sections V1 is frozen.
 
+This exercise also simulates the workflow Koda will eventually execute when assembling Elementor sites from approved UNA building blocks.
+
 ## Hard Ownership Chain
 `Variables → Base → Foundation Classes → Components → Section Base → Section Modifiers → Content`
 
@@ -26,11 +28,38 @@ Forbidden:
 - combination classes such as `hero-dark-left-bleed`
 - custom CSS used to preserve a composition that Elementor + UNA cannot reproduce
 
+## Mobile-First Build Law
+Every page and section is designed in this order:
+
+`Mobile → Tablet → Desktop`
+
+Mobile establishes the complete content hierarchy first: source order, CTA priority, component order, readable spacing, touch targets, media placement and meaning.
+
+Tablet may introduce additional relationships.
+
+Desktop may enhance the same composition with asymmetric grids, bleed, offsets, layering, larger whitespace and more complex spatial relationships.
+
+Desktop complexity must be an enhancement of a complete mobile composition.
+
+## No Responsive Hiding During This Test
+Elementor can hide content by breakpoint, but that shortcut is forbidden for this stress test.
+
+Do not use:
+- `display:none` as a responsive repair
+- separate desktop and mobile copies of the same section
+- duplicate CTA/content blocks created only for breakpoints
+- hidden duplicate media/components
+- responsive visibility to conceal a component that does not adapt
+
+Use the same content/component instances across breakpoints. Responsive changes may use legitimate Elementor controls such as order, direction, columns, alignment, sizing, gaps, positioning and stacking.
+
+If a composition cannot transform cleanly without hiding or duplication, improve the reusable system or reject the composition.
+
 ## Elementor Native Composition Is Allowed
 Use realistic Elementor controls freely where they create intentional composition:
 - flex/grid direction, alignment, order and wrapping
 - width, max-width and min-height controls
-- responsive visibility/order
+- responsive order and layout changes
 - relative/absolute positioning
 - z-index
 - overflow
@@ -119,17 +148,22 @@ Use the current component labs throughout real pages:
 - Location / Contact
 - approved Buttons with icons
 
+## Koda Assembly Lens
+Treat every successful composition as a future assembly recipe:
+
+`Content purpose → section family → approved components → mobile hierarchy → tablet adaptation → desktop enhancement → validation`
+
+The value is not only the visual pattern. Record what content makes the pattern suitable, which Lego pieces it uses, and how the same source order transforms across breakpoints.
+
 ## Sitemap Rule
 Keep the existing sitemap and page purposes intact. Redesign/recompose the pages rather than deleting page coverage.
-
-## Responsive Rule
-Mobile is an intentional composition, not desktop geometry squeezed vertically. Preserve meaning, hierarchy, accessible source order, touch targets, readable content and CTA clarity.
 
 ## Completion Gate
 The stress test is ready for review when:
 1. The full existing sitemap has been rebuilt/cleaned using the current system.
 2. Pages demonstrate substantial visual variety from the same Lego vocabulary.
 3. No local/page-specific overrides or custom CSS were used.
-4. Repeated section patterns are documented for Keep / Improve / Merge / Eliminate review.
-5. Naming is understandable to an Elementor production team.
-6. The output is ready to become the basis for Sections V1 rather than another speculative component inventory.
+4. No responsive hiding or duplicate breakpoint-specific content was used to solve layout problems.
+5. Repeated section patterns are documented for Keep / Improve / Merge / Eliminate review.
+6. Naming is understandable to an Elementor production team.
+7. The output is ready to become the basis for Sections V1 and Koda assembly rules rather than another speculative component inventory.
