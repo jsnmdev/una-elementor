@@ -1,0 +1,20 @@
+name: Drive Snapshot
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create repository snapshot
+        run: |
+          zip -qr UNA-Elementor-main.zip . -x '.git/*' 'UNA-Elementor-main.zip'
+      - name: Upload snapshot artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: UNA-Elementor-main
+          path: UNA-Elementor-main.zip
+          retention-days: 1
