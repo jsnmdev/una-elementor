@@ -25,6 +25,8 @@ Before changing architecture, templates, global styles, forms, tracking, or proj
 4. Fix root causes rather than masking symptoms.
 5. Keep the smallest coherent change needed to satisfy the approved requirement.
 
+For any visual-design, page-composition, component-presentation, conversion-UI, or generated visual-direction task, also load and apply `.standards/design-quality.md` before accepting the result.
+
 ## No Band-Aids
 Do not use:
 - duplicated business information when a shared source can own it;
@@ -43,6 +45,19 @@ Every important value should have an intentional owner. Prefer global/site-level
 Global colors, typography, spacing, containers, breakpoints, buttons, forms, component patterns, and Theme Builder templates are contracts. Do not bypass them locally because a single page is inconvenient.
 
 A missing capability should lead to an intentional system extension only when the requirement is reusable or materially justified.
+
+## Anti-AI-Slop / Design Quality
+Token and global-style compliance are necessary but not sufficient. A page can use the correct Elementor variables and still fail because its hierarchy, typography scale, composition, CTA treatment, or repeated patterns are timid or generic.
+
+`.standards/design-quality.md` is the governing visual-quality layer. Apply it to page builds, template builds, visual concepts, design critiques, and meaningful visual revisions.
+
+- Inspect the living Elementor V4 globals, variables, classes, templates, and approved VDS before inventing anything.
+- Correct composition inside the existing system rather than creating local visual exceptions.
+- Do not default to identical service/feature card grids, nested cards, glassmorphism, generic gradients, decorative motion, or evenly weighted sections.
+- Use the larger approved end of the project type scale where hierarchy warrants it; under-using an adapted scale is a quality failure.
+- Preserve one clear primary action per view and keep conversion actions close to decision content.
+- For generated visual direction, apply the anti-slop review before generation rather than polishing a generic composition afterward.
+- `/polish`, `/critique`, `/audit`, `/distill`, and `/trust` invoke the review modes defined in `.standards/design-quality.md`.
 
 ## Content and Data Architecture
 Before template multiplication, define:
@@ -178,6 +193,7 @@ Step 6 is complete when:
 - measurement points and tracking fallback are documented;
 - technical SEO and performance guardrails are established;
 - responsive, accessibility, SEO, functional, and stress tests pass;
+- visual work passes `.standards/design-quality.md`, not only token/global-style checks;
 - the page system receives explicit internal approval.
 
 Only then begin production-scale content population.
@@ -191,4 +207,4 @@ Do not pretend the WordPress database or Elementor page content is ordinary sour
 Preserve approved decisions unless meaningful new evidence justifies reopening them. Do not expand scope because a new idea appears while the current milestone is unfinished.
 
 ## Completion
-A change is done when it satisfies the approved intent, works responsively, passes applicable accessibility/SEO/performance/measurement checks, and is ready for the next explicit gate. Do not manufacture additional work after the requested outcome is production-ready.
+A change is done when it satisfies the approved intent, works responsively, passes applicable accessibility/SEO/performance/measurement/design-quality checks, and is ready for the next explicit gate. Do not manufacture additional work after the requested outcome is production-ready.
